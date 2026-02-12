@@ -55,6 +55,17 @@ export function AnimeNavBar({ items, className, defaultActive = "Home" }: NavBar
                         damping: 20,
                     }}
                 >
+                    {/* Logo Section */}
+                    <Link href="/" className="flex items-center gap-2 px-4 py-2">
+                        <div className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center">
+                            <span className="text-2xl">🐱</span>
+                        </div>
+                        <span className="hidden md:inline text-white font-semibold text-sm">Hussain Cattery</span>
+                    </Link>
+
+                    {/* Divider */}
+                    <div className="hidden md:block w-px h-8 bg-white/20"></div>
+
                     {items.map((item) => {
                         const Icon = item.icon
                         const isActive = activeTab === item.name

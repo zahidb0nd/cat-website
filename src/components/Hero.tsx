@@ -17,17 +17,7 @@ export default function Hero() {
 
     return (
         <section ref={targetRef} className="relative h-screen w-full overflow-hidden md:bg-white">
-            {/* Mobile Layout: Fixed Background Image */}
-            <div className="md:hidden fixed inset-0 w-full h-full z-10">
-                <Image
-                    src="/kittens/hussaincatterybanglore-20260213-0005.jpg"
-                    alt="Award winning cats"
-                    fill
-                    className="object-cover object-top"
-                    priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
-            </div>
+
 
             {/* Mobile Layout: Content (Scrolls) */}
             <div className="md:hidden relative h-full w-full flex flex-col justify-end pb-24 px-6 text-white z-10">
