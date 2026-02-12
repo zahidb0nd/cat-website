@@ -104,9 +104,7 @@ export default function Page() {
       <AnimeNavBar items={navItems} defaultActive="Home" />
 
       <main>
-        <div className="md:block hidden">
-          <GrowthScrollAnimation />
-        </div>
+        <GrowthScrollAnimation />
         <div id="home">
           <Hero />
         </div>
