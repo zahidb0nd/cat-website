@@ -61,7 +61,7 @@ export default function GrowthScrollAnimation() {
     }, [smoothProgress]);
 
     return (
-        <section ref={containerRef} className="relative h-[400vh] bg-black">
+        <section ref={containerRef} className="relative h-[400vh] bg-black z-20">
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
                 {/* Video Background */}
                 <video
