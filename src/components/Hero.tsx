@@ -18,7 +18,7 @@ export default function Hero() {
     return (
         <section ref={targetRef} className="relative h-screen w-full overflow-hidden md:bg-white">
             {/* Mobile Layout: Fixed Background Image */}
-            <div className="md:hidden fixed inset-0 w-full h-full -z-10">
+            <div className="md:hidden fixed inset-0 w-full h-full z-0">
                 <Image
                     src="/kittens/hussaincatterybanglore-20260213-0005.jpg"
                     alt="Award winning cats"
