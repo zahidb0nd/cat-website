@@ -268,6 +268,7 @@ export default function Page() {
               <FooterSection />
             </SectionShell>
           </div>
+        </div>
       </main>
     </div >
   );
