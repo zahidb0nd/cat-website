@@ -5,8 +5,24 @@ import Image from 'next/image';
 import { ArrowRight, Heart, Trophy, Sparkles } from 'lucide-react';
 import { TrustBadge } from './hero/TrustBadge';
 import { FloatingBadge } from './hero/FloatingBadge';
+import { useEffect, useState } from 'react';
+
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    return isMobile;
+}
 
 export default function Hero() {
+    const isMobile = useIsMobile();
+
     return (
         <section className="relative w-full overflow-hidden bg-cat-cream min-h-screen flex items-center pt-24 pb-12 md:py-0">
             {/* Background Blob - Decorative */}
@@ -22,6 +38,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
+                            style={{ willChange: 'transform' }}
                         >
                             <div className="mb-6 flex justify-center md:justify-start">
                                 <TrustBadge />
@@ -59,7 +76,8 @@ export default function Hero() {
                         <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 1, delay: 0.2 }}
+                            transition={{ duration: 1, delay: isMobile ? 0 : 0.2 }}
+                            style={{ willChange: 'transform' }}
                             className="absolute w-[90%] h-[90%] bg-white rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] shadow-2xl shadow-indigo-100/50 z-0"
                         />
 
@@ -68,7 +86,8 @@ export default function Hero() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
+                            transition={{ duration: 0.8, delay: isMobile ? 0 : 0.3 }}
+                            style={{ willChange: 'transform' }}
                             className="relative w-[80%] h-[90%] z-10 flex items-end justify-center"
                         >
                             <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl ring-4 ring-white/50">
