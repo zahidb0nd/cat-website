@@ -8,9 +8,9 @@ import { FloatingBadge } from './hero/FloatingBadge';
 
 export default function Hero() {
     return (
-        <section className="relative w-full overflow-hidden bg-cattery-cream min-h-screen flex items-center pt-24 pb-12 md:py-0">
+        <section className="relative w-full overflow-hidden bg-cat-cream min-h-screen flex items-center pt-24 pb-12 md:py-0">
             {/* Background Blob - Decorative */}
-            <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-cattery-coral/10 rounded-full blur-3xl -z-10" />
+            <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-cat-coral/10 rounded-full blur-3xl -z-10" />
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/40 via-transparent to-transparent -z-10" />
 
             <div className="container mx-auto px-6 md:px-12 h-full">
@@ -27,8 +27,8 @@ export default function Hero() {
                                 <TrustBadge />
                             </div>
 
-                            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-cattery-dark leading-[1.1] mb-6">
-                                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cattery-coral to-pink-500">Purrfect</span> start to your family.
+                            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-cat-charcoal leading-[1.1] mb-6">
+                                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cat-coral to-pink-500">Purrfect</span> start to your family.
                             </h1>
 
                             <p className="text-lg md:text-xl text-slate-600 font-sans leading-relaxed mb-8 max-w-[50ch] mx-auto md:mx-0">
@@ -38,14 +38,14 @@ export default function Hero() {
                             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                                 <a
                                     href="#breed-gallery"
-                                    className="group relative flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cattery-coral to-pink-500 text-white font-bold rounded-full shadow-xl shadow-cattery-coral/20 hover:shadow-cattery-coral/40 hover:-translate-y-1 transition-all duration-300"
+                                    className="group relative flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cat-coral to-pink-500 text-white font-bold rounded-full shadow-xl shadow-cat-coral/20 hover:shadow-cat-coral/40 hover:-translate-y-1 transition-all duration-300"
                                 >
                                     <span>Find Your Kitten</span>
                                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                 </a>
                                 <a
                                     href="#features"
-                                    className="px-8 py-4 bg-transparent border-2 border-slate-200 text-cattery-dark font-bold rounded-full hover:bg-white hover:border-white hover:shadow-lg transition-all duration-300"
+                                    className="px-8 py-4 bg-transparent border-2 border-slate-200 text-cat-charcoal font-bold rounded-full hover:bg-white hover:border-white hover:shadow-lg transition-all duration-300"
                                 >
                                     Our Process
                                 </a>
