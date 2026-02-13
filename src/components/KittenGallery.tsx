@@ -89,12 +89,12 @@ const breeds: Breed[] = [
 function DetailRow({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
     return (
         <div className="flex items-center gap-3 py-2.5 border-b border-slate-100 last:border-0">
-            <div className="p-2 rounded-xl bg-cattery-coral/10 text-cattery-coral shrink-0">
+            <div className="p-2 rounded-xl bg-cat-coral/10 text-cat-coral shrink-0">
                 <Icon size={18} />
             </div>
             <div>
                 <p className="text-xs text-slate-400 uppercase tracking-wider font-bold">{label}</p>
-                <p className="text-sm font-semibold text-cattery-dark">{value}</p>
+                <p className="text-sm font-semibold text-cat-charcoal">{value}</p>
             </div>
         </div>
     );
@@ -139,7 +139,7 @@ function BreedModal({ breed, onClose }: { breed: Breed; onClose: () => void }) {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 to-transparent md:rounded-l-3xl rounded-t-3xl md:rounded-tr-none" />
                         <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-10">
-                            <span className="inline-block px-3 py-1 mb-2 text-xs font-bold tracking-widest text-cattery-coral bg-white/10 backdrop-blur-md rounded-full border border-white/20 uppercase">
+                            <span className="inline-block px-3 py-1 mb-2 text-xs font-bold tracking-widest text-cat-coral bg-white/10 backdrop-blur-md rounded-full border border-white/20 uppercase">
                                 {breed.subtitle}
                             </span>
                             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
@@ -163,7 +163,7 @@ function BreedModal({ breed, onClose }: { breed: Breed; onClose: () => void }) {
                         <a
                             href="#contact"
                             onClick={onClose}
-                            className="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cattery-coral to-pink-500 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                            className="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cat-coral to-pink-500 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                         >
                             Enquire About {breed.title}
                         </a>
@@ -183,8 +183,8 @@ export default function BreedShowcase() {
             <section id="breed-gallery" className="py-24 bg-white">
                 <div className="container mx-auto px-6 md:px-12">
                     <div className="text-center mb-16">
-                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-cattery-dark mb-4">
-                            Our <span className="text-cattery-coral">Breeds</span>
+                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-cat-charcoal mb-4">
+                            Our <span className="text-cat-coral">Breeds</span>
                         </h2>
                         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                             We specialize in seven magnificent breeds. Each one is a masterpiece of nature, raised with love.
@@ -233,7 +233,7 @@ export default function BreedShowcase() {
                                 {/* Content Overlay */}
                                 <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end h-full">
                                     <div className="transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
-                                        <span className="inline-block px-3 py-1 mb-3 text-xs font-bold tracking-widest text-cattery-coral bg-white/10 backdrop-blur-md rounded-full border border-white/20 uppercase">
+                                        <span className="inline-block px-3 py-1 mb-3 text-xs font-bold tracking-widest text-cat-coral bg-white/10 backdrop-blur-md rounded-full border border-white/20 uppercase">
                                             Premium Breed
                                         </span>
                                         <h3 className="font-serif text-3xl font-bold text-white mb-1">

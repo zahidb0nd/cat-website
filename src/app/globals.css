@@ -18,10 +18,6 @@ html {
   --font-mono: monospace;
   --font-serif: var(--font-playfair), serif;
 
-  --color-cattery-cream: #FDF8F5;
-  --color-cattery-coral: #FF8E5E;
-  --color-cattery-dark: #2D3748;
-
   --color-cat-cream: #FDF8F5;
   --color-cat-coral: #FF8E5E;
   --color-cat-beige: #F5E6D3;
