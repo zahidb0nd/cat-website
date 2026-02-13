@@ -3,10 +3,16 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-/** Generates an image path from a breed name: 'British Shorthair' → '/kittens/british-shorthair.jpg' */
-function breedToImagePath(name: string): string {
-    return `/kittens/${name.toLowerCase().replace(/\s+/g, '-')}.jpg`;
-}
+/** Map breed IDs to actual filenames on disk (extensions vary) */
+const breedImages: Record<string, string> = {
+    'maine-coon': '/kittens/maine-coon.jpeg',
+    'bengal': '/kittens/bengal.jpeg',
+    'persian': '/kittens/persian.jfif',
+    'ragdoll': '/kittens/Ragdoll.jpg',
+    'siberian': '/kittens/siberian.jpg',
+    'british-shorthair': '/kittens/british-shorthair.jpeg',
+    'himalayan': '/kittens/himalayan.jpeg',
+};
 
 const breeds = [
     {
@@ -79,7 +85,7 @@ export default function BreedShowcase() {
                             {/* Image Background with Hover Scale */}
                             <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
                                 <Image
-                                    src={breedToImagePath(breed.title)}
+                                    src={breedImages[breed.id]}
                                     alt={breed.title}
                                     fill
                                     className="object-cover"
