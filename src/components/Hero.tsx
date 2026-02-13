@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowDown } from 'lucide-react';
 
@@ -12,7 +12,13 @@ export default function Hero() {
         offset: ['start start', 'end start'],
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const y = useTransform(smoothProgress, [0, 1], ['0%', '30%']);
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     return (
@@ -67,7 +73,7 @@ export default function Hero() {
                             love.
                         </h1>
                         <p className="mt-8 text-lg text-slate-600 leading-relaxed">
-                            We don't just breed cats; we raise family members. Health-tested, TICA registered, and socialized daily in our living room—not in cages.
+                            We don't just breed cats; we raise family members. Health-tested, WCF and FCI registered, and socialized daily in our living room—not in cages.
                         </p>
 
                         <div className="mt-10 flex gap-4">
@@ -99,7 +105,8 @@ export default function Hero() {
                 {/* Right Image with Parallax */}
                 <div className="w-1/2 relative h-full overflow-hidden">
                     <motion.div
-                        className="absolute inset-0 w-full h-full"
+                        style={{ y }}
+                        className="absolute inset-0 w-full h-full will-change-transform"
                     >
                         <Image
                             src="/kittens/hussaincatterybanglore-20260213-0009.jpg"
