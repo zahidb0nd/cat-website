@@ -23,13 +23,10 @@ import FooterSection from '@/components/ui/footer';
 
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 
 type SectionKey = 'home' | 'features' | 'kittens' | 'contact';
-
-function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(' ');
-}
 
 function SectionShell({
   id,
