@@ -330,9 +330,19 @@ const guides = [
 function GuideModal({ guide, onClose }: { guide: typeof guides[0]; onClose: () => void }) {
     // Scroll lock
     useEffect(() => {
+        const originalStyle = {
+            overflow: document.body.style.overflow,
+            height: document.body.style.height,
+        };
+
         document.body.style.overflow = 'hidden';
+        document.body.style.height = '100vh';
+        document.documentElement.style.height = '100vh';
+
         return () => {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = originalStyle.overflow;
+            document.body.style.height = originalStyle.height;
+            document.documentElement.style.height = '';
         };
     }, []);
 
@@ -341,7 +351,7 @@ function GuideModal({ guide, onClose }: { guide: typeof guides[0]; onClose: () =
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm touch-none"
             onClick={onClose}
         >
             <motion.div
@@ -349,26 +359,33 @@ function GuideModal({ guide, onClose }: { guide: typeof guides[0]; onClose: () =
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.3 }}
-                className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white rounded-3xl shadow-2xl p-8 md:p-10 overscroll-contain"
+                className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl flex flex-col max-h-[85vh] overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
             >
-                <button
-                    onClick={onClose}
-                    className="absolute top-4 right-4 p-2 rounded-full bg-cat-beige/50 hover:bg-cat-beige transition-colors z-10"
-                    aria-label="Close guide"
-                >
-                    <X size={20} className="text-cat-charcoal" />
-                </button>
-
-                <div className={`inline-flex p-3 rounded-2xl ${guide.bg} mb-4`}>
-                    <guide.icon size={28} className={guide.color} />
+                {/* Header Section - Fixed at top */}
+                <div className="flex items-start justify-between p-6 md:p-8 pb-0 shrink-0 bg-white z-10">
+                    <div className="flex-1 pr-4">
+                        <div className={`inline-flex p-3 rounded-2xl ${guide.bg} mb-4`}>
+                            <guide.icon size={28} className={guide.color} />
+                        </div>
+                        <h3 className="font-serif text-2xl md:text-3xl font-bold text-cat-charcoal leading-tight">
+                            {guide.title}
+                        </h3>
+                    </div>
+                    <button
+                        onClick={onClose}
+                        className="p-2 rounded-full bg-cat-beige/50 hover:bg-cat-beige transition-colors shrink-0"
+                        aria-label="Close guide"
+                    >
+                        <X size={24} className="text-cat-charcoal" />
+                    </button>
                 </div>
 
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-cat-charcoal mb-6">
-                    {guide.title}
-                </h3>
-
-                <div className="font-sans text-cat-charcoal/80 text-sm md:text-base leading-relaxed">
+                {/* Scrollable Content */}
+                <div
+                    className="overflow-y-auto overscroll-contain flex-1 p-6 md:p-8 pt-4 font-sans text-cat-charcoal/80 text-sm md:text-base leading-relaxed"
+                    style={{ WebkitOverflowScrolling: 'touch' }}
+                >
                     {guide.content}
                 </div>
             </motion.div>
