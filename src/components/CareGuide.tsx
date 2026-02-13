@@ -359,7 +359,7 @@ function GuideModal({ guide, onClose }: { guide: typeof guides[0]; onClose: () =
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.3 }}
-                className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl flex flex-col max-h-[85vh] overflow-hidden"
+                className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl flex flex-col max-h-[70vh] overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Header Section - Fixed at top */}
@@ -383,7 +383,7 @@ function GuideModal({ guide, onClose }: { guide: typeof guides[0]; onClose: () =
 
                 {/* Scrollable Content */}
                 <div
-                    className="overflow-y-auto overscroll-contain flex-1 p-6 md:p-8 pt-4 font-sans text-cat-charcoal/80 text-sm md:text-base leading-relaxed"
+                    className="overflow-y-auto overscroll-contain flex-1 p-6 pb-10 md:p-8 pt-4 font-sans text-cat-charcoal/80 text-sm md:text-base leading-relaxed"
                     style={{ WebkitOverflowScrolling: 'touch' }}
                 >
                     {guide.content}
