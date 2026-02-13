@@ -6,6 +6,11 @@ import Image from 'next/image';
 const galleryImages = [
     '/kittens/hussaincatterybanglore-20260213-0001.jpg',
     '/kittens/hussaincatterybanglore-20260213-0010.jpg',
+    '/kittens/kitten-1.jpg',
+    '/kittens/kitten-2.jpg',
+    '/kittens/kitten-3.jpg',
+    '/kittens/kitten-4.jpg',
+    '/kittens/kitten-5.jpg',
 ];
 
 export default function KittenGallery() {
