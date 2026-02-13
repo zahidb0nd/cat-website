@@ -1,0 +1,139 @@
+Here is the comprehensive Design Document for the **"Purrfect Care" Hero Section**. This document translates the visual style of the Dribbble shot into actionable engineering specifications for your Next.js project.
+
+---
+
+# 📄 Design Doc: Premium Cattery Hero Section
+
+**Target Aesthetic:** "RaduanUX" Style (Soft, Warm, Trustworthy, High-End).
+**Goal:** Create a high-converting first impression that balances "Cute" with "Ethical Professionalism."
+
+## 1. Visual Identity System
+
+### **A. Color Palette**
+
+We move away from clinical blues/whites to warm, organic tones that feel like a home.
+
+* **Canvas (Background):** `Cream (#FDF8F5)` - *Warm and inviting, easier on the eyes than pure white.*
+* **Primary Action (Buttons/Accents):** `Vibrant Coral (#FF8E5E)` to `Soft Pink (#FF6B6B)` Gradient. - *Energetic, playful, high contrast.*
+* **Typography (Headings):** `Charcoal (#2D3748)` - *Softer than pure black.*
+* **Typography (Body):** `Slate Grey (#64748B)` - *Readable and modern.*
+
+### **B. Typography**
+
+* **Headings (The "Premium" Touch):** Use a **Serif** font.
+* *Font:* `Fraunces`, `Playfair Display`, or `Merriweather`.
+* *Why:* Serifs suggest "Established Heritage" and "Quality," which justifies premium pricing.
+
+
+* **Body & UI (The "Modern" Touch):** Use a **Rounded Sans-Serif**.
+* *Font:* `Nunito`, `Plus Jakarta Sans`, or `Inter`.
+* *Why:* Rounded letters subconsciously match the "roundness" of kittens and feel friendly.
+
+
+
+### **C. Shapes & depth**
+
+* **Border Radius:** `rounded-full` (Pill shapes) for buttons and tags. No sharp corners.
+* **Shadows:** Large, colored, diffused shadows.
+* *Tailwind:* `shadow-xl shadow-orange-500/20` (Glow effect).
+
+
+* **Layering:** Use `z-index` to create depth: *Background Blob < Main Cat Image < Floating UI Cards.*
+
+---
+
+## 2. Layout Specifications (Wireframe)
+
+### **Desktop (1024px+)**
+
+* **Grid:** 2 Columns (45% Text / 55% Image).
+* **Alignment:** Vertically centered (`items-center`).
+* **Visual Anchor:** A massive, background "Blob" shape behind the cat to ground the image.
+
+### **Mobile (<768px)**
+
+* **Layout:** Stacked (Image First or Text First? **Text First** for SEO/Context, Image Second).
+* **Adjustments:** Text aligned Center. Floating cards moved to static positions or reduced size.
+
+---
+
+## 3. Component Breakdown
+
+### **Component A: The "Trust Badge" (Top Left)**
+
+* **Visual:** A small pill-shaped tag above the headline.
+* **Content:** "🐾 TICA Registered Cattery"
+* **Style:** White background, light orange text, subtle shadow.
+* **Purpose:** Immediate authority. Stops the user from worrying "Is this a scam?"
+
+### **Component B: The Headline & Copy**
+
+* **H1:** Large Serif font (4rem+).
+* **Emphasis:** Use the Coral color to highlight emotional words (e.g., "Love", "Family", "Health").
+* **Subtext:** Max width of 50ch (characters) for readability.
+
+### **Component C: The "Floating" Badges**
+
+* **Concept:** Small white cards that "float" around the main cat image using CSS animation.
+* **Badge 1 (Health):** Icon (Heart/DNA) + "Genetic Health Guarantee".
+* **Badge 2 (Quality):** Icon (Trophy) + "Champion Bloodlines".
+* **Animation:** `animate-float` (slow up/down bobbing).
+
+### **Component D: The Action Area**
+
+* **Primary Button:** "Find Your Kitten"
+* *Style:* Gradient background, icon on the right (Arrow), bobbing effect on hover.
+
+
+* **Secondary Button:** "Our Process" or "View Parents"
+* *Style:* Transparent background, border, dark text.
+
+
+
+---
+
+## 4. Technical Implementation Details
+
+### **Tailwind Configuration (`tailwind.config.ts`)**
+
+Add these exact values to match the design doc:
+
+```typescript
+theme: {
+  extend: {
+    colors: {
+      'cattery-cream': '#FDF8F5',
+      'cattery-coral': '#FF8E5E',
+      'cattery-dark': '#2D3748',
+    },
+    fontFamily: {
+      serif: ['var(--font-playfair)', 'serif'], // Add Playfair Display from Google Fonts
+      sans: ['var(--font-jakarta)', 'sans-serif'], // Add Plus Jakarta Sans
+    },
+    animation: {
+      'float': 'float 6s ease-in-out infinite',
+      'float-delayed': 'float 6s ease-in-out 3s infinite', // Starts later so they don't move in sync
+    },
+    keyframes: {
+      float: {
+        '0%, 100%': { transform: 'translateY(0)' },
+        '50%': { transform: 'translateY(-20px)' }, // Moves up 20px
+      }
+    }
+  }
+}
+
+```
+
+### **Asset Requirements**
+
+1. **Main Image:** A high-resolution photo of your best kitten/cat. **Must be a transparent PNG** (remove background).
+2. **Icons:** Use `lucide-react` (standard in Next.js) for the Heart, Trophy, and Arrow icons.
+
+---
+
+## 5. Why This Design Works (UX Theory)
+
+* **The "Face" Factor:** Humans are hardwired to look at eyes. A large, cutout image of a cat looking at the user increases emotional connection (Oxytocin release).
+* **Asymmetry:** The organic "Blob" shape breaks the rigid grid of the browser, making the site feel "playful" and "natural" rather than corporate.
+* **Social Proof (Floating Cards):** By pulling key selling points ("DNA Tested") out of the text and into visual badges, we ensure skimmers still see the most important value props.
