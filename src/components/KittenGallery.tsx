@@ -16,44 +16,38 @@ const kittens: Kitten[] = [
     {
         id: 1,
         src: '/kittens/hussaincatterybanglore-20260213-0001.jpg',
-        breed: 'Maine Coon',
-        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
-    },
-    {
-        id: 2,
-        src: '/kittens/hussaincatterybanglore-20260213-0010.jpg',
-        breed: 'Persian',
-        info: 'The Persian cat is a long-haired breed characterized by its round face and short muzzle. They are quiet, sweet, and love to lounge.',
-    },
-    {
-        id: 3,
-        src: '/kittens/kitten-1.jpg',
-        breed: 'Ragdoll',
-        info: 'Ragdolls are large, muscular, semi-longhair cats with a soft and silky coat. They are known for their docile and placid temperament and affectionate nature.',
-    },
-    {
-        id: 4,
-        src: '/kittens/kitten-2.jpg',
         breed: 'Bengal',
         info: 'The Bengal cat is a domesticated cat breed created from hybrids of domestic cats, especially the spotted Egyptian Mau, with the Asian leopard cat.',
     },
     {
+        id: 2,
+        src: '/kittens/kitten-1.jpg',
+        breed: 'Maine Coon',
+        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
+    },
+    {
+        id: 3,
+        src: '/kittens/kitten-2.jpg',
+        breed: 'Maine Coon',
+        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
+    },
+    {
+        id: 4,
+        src: '/kittens/kitten-4.jpg',
+        breed: 'Maine Coon',
+        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
+    },
+    {
         id: 5,
-        src: '/kittens/kitten-3.jpg',
-        breed: 'British Shorthair',
-        info: 'The British Shorthair is the pedigreed version of the traditional British domestic cat, with a distinctively stocky body, dense coat, and broad face.',
+        src: '/kittens/kitten-5.jpg',
+        breed: 'Maine Coon',
+        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
     },
     {
         id: 6,
-        src: '/kittens/kitten-4.jpg',
-        breed: 'Sphynx',
-        info: 'The Sphynx cat is a breed of cat known for its lack of coat. Hairlessness in cats is a naturally occurring genetic mutation, and the Sphynx was developed through selective breeding.',
-    },
-    {
-        id: 7,
-        src: '/kittens/kitten-5.jpg',
-        breed: 'Siamese',
-        info: 'The Siamese cat is one of the first distinctly recognized breeds of Asian cat. Derived from the Wichianmat landrace, one of several varieties of cat native to Thailand.',
+        src: '/kittens/kitten-6.jpg',
+        breed: 'Maine Coon',
+        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
     },
 ];
 
