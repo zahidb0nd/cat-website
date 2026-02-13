@@ -63,4 +63,46 @@ body {
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
+
+  .gpu-accelerated {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+}
+
+/* Touch Optimization: Remove 300ms tap delay on all interactive elements */
+a,
+button,
+[role="button"],
+input,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
+}
+
+/* Ensure minimum 44x44px touch targets on mobile */
+@media (pointer: coarse) {
+
+  a,
+  button,
+  [role="button"],
+  summary {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Smooth scroll import for Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }

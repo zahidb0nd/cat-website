@@ -74,7 +74,8 @@ export default function CatteryMoments() {
                                 alt={moment.title}
                                 width={600}
                                 height={800}
-                                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-110 will-change-transform"
                             />
 
                             {/* Hover Overlay */}
