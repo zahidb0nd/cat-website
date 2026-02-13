@@ -61,7 +61,7 @@ export default function Page() {
         bg: 'bg-emerald-500/10',
       },
       {
-        title: 'TICA Registered',
+        title: 'WCF and FCI Registered',
         desc: '100% Pedigree-backed with transparent documentation and lineage.',
         icon: Sparkles,
         color: 'text-purple-500',
