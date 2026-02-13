@@ -228,7 +228,7 @@ export default function Page() {
                 <a
                   href="https://wa.me/916362693487"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="group relative p-8 rounded-3xl bg-slate-800/50 border border-slate-700 hover:border-indigo-500/50 hover:bg-slate-800 transition-all duration-300"
                 >
                   <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
