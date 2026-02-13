@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, ShieldCheck, PawPrint } from 'lucide-react';
+import { sanitize } from '@/lib/utils';
 
 const breeds = [
     'Maine Coon',
@@ -23,9 +24,6 @@ export default function ReservationForm() {
     });
     const [submitted, setSubmitted] = useState(false);
     const [errors, setErrors] = useState<Record<string, string>>({});
-
-    // SECURITY: Strip HTML tags and trim whitespace to prevent XSS in WhatsApp message
-    const sanitize = (str: string) => str.replace(/<[^>]*>/g, '').trim();
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
