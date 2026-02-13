@@ -74,8 +74,8 @@ export default function FooterSection() {
                         <Mail className="size-6" />
                     </Link>
                 </div>
-                <p className="text-center text-sm font-medium text-slate-500 mb-2">Established 2017 · {new Date().getFullYear() - 2017}+ Years of Excellence</p>
-                <span className="text-slate-400 block text-center text-sm"> © {new Date().getFullYear()} Hussain Cattery, All rights reserved</span>
+                <p className="text-center text-sm font-medium text-slate-500 mb-2">Established 2017 · <span suppressHydrationWarning>{new Date().getFullYear() - 2017}</span>+ Years of Excellence</p>
+                <span className="text-slate-400 block text-center text-sm"> © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Hussain Cattery, All rights reserved</span>
             </div>
         </footer>
     )
