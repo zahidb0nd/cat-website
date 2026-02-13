@@ -1,149 +1,79 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Info } from 'lucide-react';
 
-interface Kitten {
-    id: number;
-    src: string;
-    breed: string;
-    info: string;
-}
-
-const kittens: Kitten[] = [
+const breeds = [
     {
-        id: 1,
-        src: '/kittens/hussaincatterybanglore-20260213-0001.jpg',
-        breed: 'Bengal',
-        info: 'The Bengal cat is a domesticated cat breed created from hybrids of domestic cats, especially the spotted Egyptian Mau, with the Asian leopard cat.',
+        id: 'mainecoon',
+        title: 'Maine Coon',
+        subtitle: 'The Gentle Giants',
+        src: '/kittens/kitten-1.jpg', // Using a high-quality existing image
+        description: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
     },
     {
-        id: 2,
-        src: '/kittens/kitten-1.jpg',
-        breed: 'Maine Coon',
-        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
-    },
-    {
-        id: 3,
-        src: '/kittens/kitten-2.jpg',
-        breed: 'Maine Coon',
-        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
-    },
-    {
-        id: 4,
-        src: '/kittens/kitten-4.jpg',
-        breed: 'Maine Coon',
-        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
-    },
-    {
-        id: 5,
-        src: '/kittens/kitten-5.jpg',
-        breed: 'Maine Coon',
-        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
-    },
-    {
-        id: 6,
-        src: '/kittens/kitten-6.jpg',
-        breed: 'Maine Coon',
-        info: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
+        id: 'bengal',
+        title: 'Bengal',
+        subtitle: 'Miniature Leopards',
+        src: '/kittens/hussaincatterybanglore-20260213-0001.jpg', // Using the specified Bengal image
+        description: 'The Bengal cat is a domesticated cat breed created from hybrids of domestic cats, especially the spotted Egyptian Mau, with the Asian leopard cat.',
     },
 ];
 
-interface FlipCardProps {
-    kitten: Kitten;
-}
-
-function FlipCard({ kitten }: FlipCardProps) {
-    const [isFlipped, setIsFlipped] = useState(false);
-
-    const handleFlip = () => {
-        setIsFlipped(!isFlipped);
-    };
-
+export default function BreedShowcase() {
     return (
-        <div className="group relative h-96 w-full cursor-pointer perspective-1000" onClick={handleFlip}>
-            <motion.div
-                className="relative h-full w-full preserve-3d transition-all duration-500"
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6, type: 'spring', stiffness: 260, damping: 20 }}
-                style={{ transformStyle: 'preserve-3d' }}
-            >
-                {/* Front Side */}
-                <div className="absolute inset-0 h-full w-full backface-hidden rounded-3xl overflow-hidden shadow-lg bg-white ring-1 ring-slate-200/50">
-                    <div className="relative h-full w-full">
-                        <Image
-                            src={kitten.src}
-                            alt={kitten.breed}
-                            fill
-                            className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90" />
-                        <div className="absolute bottom-0 left-0 w-full p-6 text-white translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                            <div className="flex items-center justify-between">
-                                <h3 className="text-2xl font-bold">{kitten.breed}</h3>
-                                <Info className="text-white/80" size={24} />
-                            </div>
-                            <p className="text-sm text-white/80 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Click to learn more</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Back Side */}
-                <div
-                    className="absolute inset-0 h-full w-full backface-hidden rounded-3xl overflow-hidden shadow-lg bg-white p-8 flex flex-col justify-center items-center text-center ring-1 ring-slate-200/50 rotate-y-180 bg-gradient-to-br from-indigo-50 to-white"
-                    style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
-                >
-                    <div className="mb-4 p-4 bg-indigo-100 rounded-full text-indigo-600">
-                        <Info size={32} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-4">{kitten.breed}</h3>
-                    <p className="text-slate-600 leading-relaxed font-medium">
-                        {kitten.info}
-                    </p>
-                    <button className="mt-6 px-6 py-2 bg-indigo-600 text-white rounded-full text-sm font-bold shadow-md hover:bg-indigo-700 transition-colors">
-                        View Photos
-                    </button>
-                </div>
-            </motion.div>
-        </div>
-    );
-}
-
-export default function KittenGallery() {
-    return (
-        <section id="kittens" className="py-16 md:py-24 bg-slate-50">
-            <div className="container mx-auto px-4 md:px-8">
-                <div className="max-w-xl mx-auto md:mx-0 md:max-w-2xl mb-12 text-center md:text-left">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                        Meet our <span className="text-indigo-600">little ones</span>.
+        <section id="kittens" className="py-24 bg-white">
+            <div className="container mx-auto px-6 md:px-12">
+                <div className="text-center mb-16">
+                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-cattery-dark mb-4">
+                        Our <span className="text-cattery-coral">Breeds</span>
                     </h2>
-                    <p className="text-slate-600">
-                        Tap on a card to learn more about each of our breeds.
+                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                        We specialize in two distinct, magnificent breeds. Each one is a masterpiece of nature.
                     </p>
                 </div>
 
-                {/* Mobile View: Snap-scroll Carousel */}
-                <div className="md:hidden flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 -mx-4 px-4 scrollbar-none">
-                    {kittens.map((kitten) => (
-                        <div key={kitten.id} className="snap-center shrink-0 w-[85%] max-w-[320px]">
-                            <FlipCard kitten={kitten} />
-                        </div>
-                    ))}
-                </div>
-
-                {/* Desktop View: Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-                    {kittens.map((kitten) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    {breeds.map((breed, index) => (
                         <motion.div
-                            key={kitten.id}
-                            initial={{ opacity: 0, y: 20 }}
+                            key={breed.id}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: kitten.id * 0.1 }}
+                            transition={{ duration: 0.8, delay: index * 0.2 }}
+                            className="group relative h-[500px] w-full overflow-hidden rounded-[2rem] shadow-2xl cursor-pointer"
                         >
-                            <FlipCard kitten={kitten} />
+                            {/* Image Background with Hover Scale */}
+                            <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
+                                <Image
+                                    src={breed.src}
+                                    alt={breed.title}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                            </div>
+
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
+
+                            {/* Content Overlay */}
+                            <div className="absolute bottom-0 left-0 w-full p-8 md:p-10 flex flex-col justify-end h-full">
+                                <div className="transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
+                                    <span className="inline-block px-3 py-1 mb-3 text-xs font-bold tracking-widest text-cattery-coral bg-white/10 backdrop-blur-md rounded-full border border-white/20 uppercase">
+                                        Premium Breed
+                                    </span>
+                                    <h3 className="font-serif text-4xl font-bold text-white mb-2">
+                                        {breed.title}
+                                    </h3>
+                                    <p className="text-xl text-slate-200 font-medium mb-4">
+                                        {breed.subtitle}
+                                    </p>
+                                    <p className="text-slate-300 text-sm leading-relaxed opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover:opacity-100 group-hover:max-h-24">
+                                        {breed.description}
+                                    </p>
+                                </div>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
