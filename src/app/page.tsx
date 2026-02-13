@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle, Info, FileText } from 'lucide-react';
 
@@ -93,11 +93,11 @@ export default function Page() {
   );
 
   // Fix: Force scroll to top on mount to prevent browser starting at bottom
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       window.history.scrollRestoration = 'manual';
     }
-  });
+  }, []);
 
 
   const handleTabChange = (index: number | null) => {
