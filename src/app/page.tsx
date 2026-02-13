@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle, Info, FileText } from 'lucide-react';
 
@@ -100,7 +100,7 @@ export default function Page() {
   });
 
 
-  const handleTabChange = (index: number | null) => {
+  const handleTabChange = useCallback((index: number | null) => {
     if (index === null) return;
     const targets = ['#home', '#features', '#breed-gallery', '#contact'];
     // Map index to target (skipping separators if any, but our list is clean)
@@ -110,7 +110,7 @@ export default function Page() {
       const element = document.querySelector(targetId);
       element?.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
 
   return (
     <div className="min-h-screen text-cat-charcoal font-sans selection:bg-cat-coral/20 selection:text-cat-charcoal">
