@@ -97,7 +97,7 @@ export default function Hero() {
                             />
                             <FloatingBadge
                                 icon={Sparkles}
-                                text="TICA Registered"
+                                text="WCF & FCI Registered"
                                 className="-bottom-8 right-0 md:bottom-12 md:-right-8"
                                 delay="short"
                             />
