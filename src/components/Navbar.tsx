@@ -125,7 +125,7 @@ export default function Navbar() {
                                 <div className="mt-4 flex justify-center gap-4 text-slate-400">
                                     <a href="https://wa.me/916362693487" target="_blank" className="hover:text-indigo-600 transition-colors"><Phone size={20} /></a>
                                     <a href="mailto:hello@hussaincattery.com" className="hover:text-indigo-600 transition-colors"><Mail size={20} /></a>
-                                    <a href="https://instagram.com/hussaincatterybangalore" target="_blank" className="hover:text-pink-600 transition-colors"><Instagram size={20} /></a>
+                                    <a href="https://www.instagram.com/hussaincatterybanglore/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 transition-colors"><Instagram size={20} /></a>
                                 </div>
                             </div>
                         </motion.div>

@@ -1,22 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FDF8F5;
+  --foreground: #2D3748;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Plus Jakarta Sans", var(--font-geist-sans), sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
-  --font-serif: "Playfair Display", serif;
+  --font-sans: var(--font-ubuntu), sans-serif;
+  --font-mono: monospace;
+  --font-serif: var(--font-playfair), serif;
 
   --color-cattery-cream: #FDF8F5;
   --color-cattery-coral: #FF8E5E;
   --color-cattery-dark: #2D3748;
+
+  --color-cat-cream: #FDF8F5;
+  --color-cat-coral: #FF8E5E;
+  --color-cat-beige: #F5E6D3;
+  --color-cat-charcoal: #2D3748;
+  --color-cat-slate: #5B6E74;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-delayed: float 6s ease-in-out 3s infinite;
@@ -36,15 +46,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #FDF8F5;
+    --foreground: #2D3748;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
 }
 
 @layer utilities {

@@ -1,6 +1,49 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  // ─── Security Headers (OWASP Best Practices) ──────────────────
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          // Prevent clickjacking
+          { key: 'X-Frame-Options', value: 'DENY' },
+          // Block MIME-type sniffing
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          // Enable XSS filter
+          { key: 'X-XSS-Protection', value: '1; mode=block' },
+          // Control referrer information
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          // Restrict browser features
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(self), payment=()',
+          },
+          // Strict Transport Security (HTTPS enforcement)
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          // Content Security Policy
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://open.er-api.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "img-src 'self' data: blob: https:",
+              "font-src 'self' https://fonts.gstatic.com",
+              "connect-src 'self' https://open.er-api.com",
+              "frame-src 'self' https://www.google.com https://maps.google.com",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+            ].join('; '),
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

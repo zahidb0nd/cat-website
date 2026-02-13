@@ -18,8 +18,8 @@ const links = [
         href: '#home',
     },
     {
-        title: 'Our Kittens',
-        href: '#kittens',
+        title: 'Our Breeds',
+        href: '#breed-gallery',
     },
     {
         title: 'Features',
@@ -57,7 +57,7 @@ export default function FooterSection() {
                 <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
                     {/* Using generic icons for social links */}
                     <Link
-                        href="https://instagram.com/hussaincatterybangalore"
+                        href="https://www.instagram.com/hussaincatterybanglore/"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
@@ -79,6 +79,7 @@ export default function FooterSection() {
                         <Mail className="size-6" />
                     </Link>
                 </div>
+                <p className="text-center text-sm font-medium text-slate-500 mb-2">Established 2017 · {new Date().getFullYear() - 2017}+ Years of Excellence</p>
                 <span className="text-slate-400 block text-center text-sm"> © {new Date().getFullYear()} Hussain Cattery, All rights reserved</span>
             </div>
         </footer>

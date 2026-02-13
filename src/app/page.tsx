@@ -6,13 +6,24 @@ import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle, I
 
 import Hero from '@/components/Hero';
 import KittenGallery from '@/components/KittenGallery';
-import GrowthScrollAnimation from '@/components/GrowthScrollAnimation';
+import FloatingContactButtons from '@/components/FloatingContactButtons';
+import ReservationForm from '@/components/ReservationForm';
+
 import CatteryMoments from '@/components/CatteryMoments';
+import Testimonials from '@/components/Testimonials';
+import GoogleMapSection from '@/components/GoogleMapSection';
+import FAQSection from '@/components/FAQSection';
+import CareGuide from '@/components/CareGuide';
+import CertifiedBadgeBar from '@/components/CertifiedBadgeBar';
+import AboutTimeline from '@/components/AboutTimeline';
+import CurrencySwitcher from '@/components/CurrencySwitcher';
+import FloatingTrustBadge from '@/components/FloatingTrustBadge';
 import { LocationMap } from '@/components/ui/expand-map';
 import { ExpandableTabs } from '@/components/ui/expandable-tabs';
 import FooterSection from '@/components/ui/footer';
 
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
+import Image from 'next/image';
 
 
 type SectionKey = 'home' | 'features' | 'kittens' | 'contact';
@@ -39,7 +50,7 @@ function SectionShell({
     <section id={id} className="scroll-mt-24 px-4 py-12 md:py-20">
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-10 md:mb-16 text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{title}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-cat-charcoal mb-4">{title}</h2>
           {subtitle ? <p className="text-lg text-slate-600 leading-relaxed">{subtitle}</p> : null}
         </div>
         {children}
@@ -61,8 +72,8 @@ export default function Page() {
         bg: 'bg-emerald-500/10',
       },
       {
-        title: 'WCF and FCI Registered',
-        desc: '100% Pedigree-backed with transparent documentation and lineage.',
+        title: 'WCF & FCI Registered',
+        desc: 'World Cat Federation & Feline Club of India registered cattery in Bangalore.',
         icon: Sparkles,
         color: 'text-purple-500',
         bg: 'bg-purple-500/10',
@@ -95,7 +106,7 @@ export default function Page() {
 
   const handleTabChange = (index: number | null) => {
     if (index === null) return;
-    const targets = ['#home', '#features', '#kittens', '#contact'];
+    const targets = ['#home', '#features', '#breed-gallery', '#contact'];
     // Map index to target (skipping separators if any, but our list is clean)
     // Our list: [Home, Features, Kittens, Contact] -> indices 0, 1, 2, 3
     const targetId = targets[index];
@@ -106,8 +117,18 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
-      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+    <div className="min-h-screen text-cat-charcoal font-sans selection:bg-cat-coral/20 selection:text-cat-charcoal">
+      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3">
+        <a href="#home" className="shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Hussain Cattery Logo"
+            width={96}
+            height={96}
+            className="h-16 w-16 md:h-24 md:w-24 rounded-full shadow-lg ring-2 ring-white/60 object-cover"
+            priority
+          />
+        </a>
         <ExpandableTabs
           tabs={[
             { title: "Home", icon: Home },
@@ -120,35 +141,41 @@ export default function Page() {
         />
       </div>
 
+      {/* Currency Switcher */}
+      <div className="fixed top-4 right-4 z-50 hidden md:block">
+        <CurrencySwitcher />
+      </div>
+
+      <FloatingContactButtons />
+      <FloatingTrustBadge />
+
       <main>
-        <GrowthScrollAnimation />
         <div id="home">
           <Hero />
         </div>
 
-        <div className="relative z-10 bg-slate-50">
+        <div className="relative z-10 bg-cat-beige/40">
           {/* FEATURES */}
           <SectionShell
             id="features"
             title="Why families trust us"
             subtitle="We believe in transparency, ethical breeding, and raising kittens as family members, not just pets."
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {features.map((f, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {features.slice(0, 3).map((f, i) => (
                 <motion.div
                   key={f.title}
                   initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
                   whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className={cn(CARD, 'p-6 md:p-8 flex flex-col items-start h-full hover:shadow-xl transition-all duration-300')}
+                  transition={{ duration: 0.5, delay: i * 0.15 }}
+                  className="flex flex-col items-center text-center"
                 >
-                  <div className={cn('p-3 rounded-2xl mb-4', f.bg, f.color)}>
-                    <f.icon size={28} />
+                  <div className={cn('p-4 rounded-2xl mb-5', f.bg, f.color)}>
+                    <f.icon size={32} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{f.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{f.desc}</p>
+                  <h3 className="text-lg font-bold text-cat-charcoal mb-2">{f.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed max-w-[28ch]">{f.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -189,13 +216,11 @@ export default function Page() {
             </motion.div>
           </SectionShell>
 
-
-
-
-
-
+          <AboutTimeline />
 
           <KittenGallery />
+
+          <ReservationForm />
 
           <CatteryMoments />
 
@@ -251,34 +276,19 @@ export default function Page() {
 
               </div>
 
-              <div className="mt-12 max-w-3xl mx-auto">
-                <div className="p-8 rounded-3xl bg-slate-800 border border-slate-700">
-                  <h3 className="text-xl font-bold text-white mb-6">Frequently Asked Questions</h3>
-                  <div className="space-y-4">
-                    {[
-                      { q: 'Do you provide vaccination records?', a: 'Yes, every kitten comes with a complete health record and vaccination history.' },
-                      { q: 'Can you help with shipping?', a: 'Absolutely. We have experience shipping kittens safely across the country and internationally.' },
-                      { q: 'Are kittens socialized?', a: 'Yes! They are raised in our home, handled daily, and accustomed to household noises and people.' },
-                    ].map((item, i) => (
-                      <details key={i} className="group p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
-                        <summary className="flex items-center justify-between font-semibold text-slate-200 list-none">
-                          <span>{item.q}</span>
-                          <ChevronDown className="transition-transform group-open:rotate-180 text-slate-500" />
-                        </summary>
-                        <p className="mt-3 text-slate-400 text-sm leading-relaxed border-t border-slate-700/50 pt-3">
-                          {item.a}
-                        </p>
-                      </details>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <FooterSection />
             </SectionShell>
           </div>
+
+          {/* Trust-building sections */}
+          <CareGuide />
+          <Testimonials />
+          <FAQSection />
+          <GoogleMapSection />
         </div>
       </main>
+
+      <CertifiedBadgeBar />
+      <FooterSection />
     </div >
   );
 }

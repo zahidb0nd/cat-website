@@ -37,7 +37,7 @@ export default function Hero() {
 
                             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                                 <a
-                                    href="#kittens"
+                                    href="#breed-gallery"
                                     className="group relative flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cattery-coral to-pink-500 text-white font-bold rounded-full shadow-xl shadow-cattery-coral/20 hover:shadow-cattery-coral/40 hover:-translate-y-1 transition-all duration-300"
                                 >
                                     <span>Find Your Kitten</span>
@@ -53,8 +53,8 @@ export default function Hero() {
                         </motion.div>
                     </div>
 
-                    {/* Right Content (Image & Blobs) */}
-                    <div className="w-full md:w-[55%] relative flex justify-center items-center h-[50vh] md:h-auto min-h-[500px]">
+                    {/* Right Content (Image & Blobs) — hidden on mobile to avoid clutter */}
+                    <div className="hidden md:flex w-full md:w-[55%] relative justify-center items-center h-[50vh] md:h-auto min-h-[500px]">
                         {/* Organic Blob Shape Behind Image */}
                         <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}
@@ -76,7 +76,7 @@ export default function Hero() {
                                     src="/kittens/kitten-1.jpg"
                                     alt="Premium Maine Coon Kitten"
                                     fill
-                                    className="object-cover"
+                                    className="object-cover object-top will-change-transform"
                                     priority
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
@@ -97,7 +97,7 @@ export default function Hero() {
                             />
                             <FloatingBadge
                                 icon={Sparkles}
-                                text="WCF & FCI Registered"
+                                text="WCF & FCI Registered · Bangalore"
                                 className="-bottom-8 right-0 md:bottom-12 md:-right-8"
                                 delay="short"
                             />
