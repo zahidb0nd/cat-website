@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Ubuntu } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { safeJsonLdStringify } from "@/lib/utils";
 
 
 const playfair = Playfair_Display({
@@ -81,7 +82,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(jsonLd) }}
         />
       </head>
       <body
