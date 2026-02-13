@@ -213,11 +213,20 @@ export default function BreedShowcase() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl cursor-pointer"
+                                className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cat-coral/50"
                                 onClick={() => setSelectedBreed(breed)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        setSelectedBreed(breed);
+                                    }
+                                }}
+                                role="button"
+                                tabIndex={0}
+                                aria-label={`View details for ${breed.title}`}
                             >
                                 {/* Image Background with Hover Scale */}
-                                <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
+                                <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 group-focus-within:scale-105">
                                     <Image
                                         src={breedImages[breed.id]}
                                         alt={`${breed.title} kitten for sale in Bangalore - Hussain Cattery`}
@@ -228,11 +237,11 @@ export default function BreedShowcase() {
                                 </div>
 
                                 {/* Gradient Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90 group-focus-within:opacity-90" />
 
                                 {/* Content Overlay */}
                                 <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end h-full">
-                                    <div className="transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
+                                    <div className="transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0 group-focus-within:translate-y-0">
                                         <span className="inline-block px-3 py-1 mb-3 text-xs font-bold tracking-widest text-cat-coral bg-white/10 backdrop-blur-md rounded-full border border-white/20 uppercase">
                                             Premium Breed
                                         </span>
@@ -242,10 +251,10 @@ export default function BreedShowcase() {
                                         <p className="text-lg text-slate-200 font-medium mb-3">
                                             {breed.subtitle}
                                         </p>
-                                        <p className="text-slate-300 text-sm leading-relaxed opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover:opacity-100 group-hover:max-h-24">
+                                        <p className="text-slate-300 text-sm leading-relaxed opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover:opacity-100 group-hover:max-h-24 group-focus-within:opacity-100 group-focus-within:max-h-24">
                                             {breed.description}
                                         </p>
-                                        <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                        <div className="mt-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 delay-100">
                                             <a
                                                 href={`https://wa.me/916362693487?text=${encodeURIComponent(`Hi Hussain, I am interested in the ${breed.title} kitten and would like to know the price and shipping details.`)}`}
                                                 target="_blank"
