@@ -1,25 +1,27 @@
 'use client';
 
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useCallback, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle, Info, FileText } from 'lucide-react';
 
 import Hero from '@/components/Hero';
-import KittenGallery from '@/components/KittenGallery';
 import FloatingContactButtons from '@/components/FloatingContactButtons';
-import ReservationForm from '@/components/ReservationForm';
 
-import CatteryMoments from '@/components/CatteryMoments';
-import Testimonials from '@/components/Testimonials';
-import GoogleMapSection from '@/components/GoogleMapSection';
-import FAQSection from '@/components/FAQSection';
-import CareGuide from '@/components/CareGuide';
-import CertifiedBadgeBar from '@/components/CertifiedBadgeBar';
-import AboutTimeline from '@/components/AboutTimeline';
+const KittenGallery = dynamic(() => import('@/components/KittenGallery'));
+const ReservationForm = dynamic(() => import('@/components/ReservationForm'));
+const CatteryMoments = dynamic(() => import('@/components/CatteryMoments'));
+const Testimonials = dynamic(() => import('@/components/Testimonials'));
+const GoogleMapSection = dynamic(() => import('@/components/GoogleMapSection'));
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
+const CareGuide = dynamic(() => import('@/components/CareGuide'));
+const CertifiedBadgeBar = dynamic(() => import('@/components/CertifiedBadgeBar'));
+const AboutTimeline = dynamic(() => import('@/components/AboutTimeline'));
 
 import FloatingTrustBadge from '@/components/FloatingTrustBadge';
 import { ExpandableTabs } from '@/components/ui/expandable-tabs';
-import FooterSection from '@/components/ui/footer';
+
+const FooterSection = dynamic(() => import('@/components/ui/footer'));
 
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import Image from 'next/image';
@@ -90,11 +92,11 @@ export default function Page() {
   );
 
   // Fix: Force scroll to top on mount to prevent browser starting at bottom
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       window.history.scrollRestoration = 'manual';
     }
-  });
+  }, []);
 
 
   const handleTabChange = useCallback((index: number | null) => {
