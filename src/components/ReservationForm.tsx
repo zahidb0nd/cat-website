@@ -24,8 +24,8 @@ export default function ReservationForm() {
     const [submitted, setSubmitted] = useState(false);
     const [errors, setErrors] = useState<Record<string, string>>({});
 
-    // SECURITY: Strip HTML tags and trim whitespace to prevent XSS in WhatsApp message
-    const sanitize = (str: string) => str.replace(/<[^>]*>/g, '').trim();
+    // SECURITY: Trim whitespace; strict validation handles malicious content
+    const sanitize = (str: string) => str.trim();
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -43,9 +43,9 @@ export default function ReservationForm() {
         const cleanName = sanitize(form.name);
         const cleanPhone = form.phone.replace(/\s/g, '');
 
-        // Name: 2-100 chars, letters and spaces only
-        if (cleanName.length < 2 || cleanName.length > 100) {
-            newErrors.name = 'Name must be 2–100 characters';
+        // Name: 2-100 chars, letters and common name characters
+        if (!/^[a-zA-Z\s.'-]{2,100}$/.test(cleanName)) {
+            newErrors.name = 'Name must be 2–100 characters and contain only letters';
         }
 
         // Phone: exactly 10 digits (Indian mobile)
@@ -58,9 +58,11 @@ export default function ReservationForm() {
             newErrors.breed = 'Please select a valid breed';
         }
 
-        // Message: optional, but enforce length limit
+        // Message: optional, but enforce length limit and disallow HTML-like characters
         if (form.message.length > 500) {
             newErrors.message = 'Message must be under 500 characters';
+        } else if (/[<>]/.test(form.message)) {
+            newErrors.message = 'Message cannot contain HTML tags or brackets';
         }
 
         setErrors(newErrors);
