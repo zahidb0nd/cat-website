@@ -2,13 +2,8 @@ import Link from 'next/link'
 
 // Import generic icons from lucide-react
 import {
-    Globe, // Could represent a website or general online presence
     Instagram,
-    MessageCircle, // Could represent communication/social
-    Link as LinkIcon, // Renamed to avoid conflict with Next.js Link
-    Send, // Could represent sending a message, a bit like a paper plane for social
-    Feather, // Could be an abstract representation for a 'feed' or 'post'
-    Phone,
+    MessageCircle,
     Mail
 } from 'lucide-react'
 

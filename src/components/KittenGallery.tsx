@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { X, MapPin, Smile, Ruler, Scissors, Baby } from 'lucide-react';
-import Price from '@/components/Price';
+
 
 /** Map breed IDs to actual filenames on disk (extensions vary) */
 const breedImages: Record<string, string> = {
@@ -30,7 +30,6 @@ interface Breed {
     title: string;
     subtitle: string;
     description: string;
-    priceINR: number;
     details: BreedDetails;
 }
 
@@ -40,7 +39,6 @@ const breeds: Breed[] = [
         title: 'Maine Coon',
         subtitle: 'The Gentle Giants',
         description: 'Known for their large size and gentle nature, Maine Coons are often called "gentle giants". They are friendly, playful, and great with families.',
-        priceINR: 45000,
         details: { origin: 'United States', temperament: 'Gentle & Sociable', size: 'Large', grooming: 'Moderate', goodWithKids: true },
     },
     {
@@ -48,7 +46,6 @@ const breeds: Breed[] = [
         title: 'Bengal',
         subtitle: 'Miniature Leopards',
         description: 'The Bengal cat is a domesticated cat breed created from hybrids of domestic cats, especially the spotted Egyptian Mau, with the Asian leopard cat.',
-        priceINR: 40000,
         details: { origin: 'United States', temperament: 'Playful & Vocal', size: 'Medium', grooming: 'Low', goodWithKids: true },
     },
     {
@@ -56,7 +53,6 @@ const breeds: Breed[] = [
         title: 'Persian',
         subtitle: 'The Glamorous Icon',
         description: 'The Persian cat is a long-haired breed characterized by its round face and short muzzle. They are quiet, sweet, and love to lounge in luxury.',
-        priceINR: 30000,
         details: { origin: 'Iran (Persia)', temperament: 'Calm & Affectionate', size: 'Medium', grooming: 'High', goodWithKids: true },
     },
     {
@@ -64,7 +60,6 @@ const breeds: Breed[] = [
         title: 'Ragdoll',
         subtitle: 'Floppy & Affectionate',
         description: 'Ragdolls are large, muscular, semi-longhair cats with a soft and silky coat. They are known for their docile temperament and affectionate nature.',
-        priceINR: 35000,
         details: { origin: 'United States', temperament: 'Docile & Loyal', size: 'Large', grooming: 'Moderate', goodWithKids: true },
     },
     {
@@ -72,7 +67,6 @@ const breeds: Breed[] = [
         title: 'Siberian',
         subtitle: 'Hypoallergenic Hunter',
         description: 'Siberian cats are powerful and alert, with a dense triple coat. They produce less of the Fel d 1 protein, making them a popular hypoallergenic choice.',
-        priceINR: 38000,
         details: { origin: 'Russia', temperament: 'Adventurous & Friendly', size: 'Large', grooming: 'Moderate', goodWithKids: true },
     },
     {
@@ -80,7 +74,6 @@ const breeds: Breed[] = [
         title: 'British Shorthair',
         subtitle: 'The Teddy Bear',
         description: 'The British Shorthair is the pedigreed version of the traditional British domestic cat, with a distinctively stocky body, dense coat, and broad face.',
-        priceINR: 32000,
         details: { origin: 'United Kingdom', temperament: 'Easy-Going & Calm', size: 'Medium', grooming: 'Low', goodWithKids: true },
     },
     {
@@ -88,7 +81,6 @@ const breeds: Breed[] = [
         title: 'Himalayan',
         subtitle: 'The Colorpoint Persian',
         description: 'The Himalayan is a sub-breed of the Persian, known for its striking blue eyes and color-point coat pattern. They combine the Persian\'s luxurious coat with the Siamese\'s beautiful markings.',
-        priceINR: 28000,
         details: { origin: 'United States / United Kingdom', temperament: 'Sweet & Devoted', size: 'Medium', grooming: 'High', goodWithKids: true },
     },
 ];
@@ -197,14 +189,19 @@ export default function BreedShowcase() {
                         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                             We specialize in seven magnificent breeds. Each one is a masterpiece of nature, raised with love.
                         </p>
-                        <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-cat-beige shadow-sm">
-                            <span className="relative flex h-2.5 w-2.5">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-                            </span>
-                            <span className="text-sm text-cat-slate font-medium">
-                                Availability updated: {new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
-                            </span>
+                        <div className="mt-4 flex flex-col items-center gap-3">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-cat-beige shadow-sm">
+                                <span className="relative flex h-2.5 w-2.5">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+                                </span>
+                                <span className="text-sm text-cat-slate font-medium">
+                                    Availability updated: {new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+                                </span>
+                            </div>
+                            <p className="text-sm text-slate-500 font-medium bg-slate-100 px-4 py-1.5 rounded-lg border border-slate-200/50">
+                                🌍 Global Shipping & Pedigree Documentation provided with every kitten. Established 2017.
+                            </p>
                         </div>
                     </div>
 
@@ -248,8 +245,16 @@ export default function BreedShowcase() {
                                         <p className="text-slate-300 text-sm leading-relaxed opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover:opacity-100 group-hover:max-h-24">
                                             {breed.description}
                                         </p>
-                                        <div className="mt-2 text-white text-lg">
-                                            <Price amountINR={breed.priceINR} showShipping />
+                                        <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                            <a
+                                                href={`https://wa.me/916362693487?text=${encodeURIComponent(`Hi Hussain, I am interested in the ${breed.title} kitten and would like to know the price and shipping details.`)}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full text-white text-sm font-semibold transition-colors border border-white/20"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                <span>Inquire for Price</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

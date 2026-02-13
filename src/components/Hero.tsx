@@ -32,7 +32,7 @@ export default function Hero() {
                             </h1>
 
                             <p className="text-lg md:text-xl text-slate-600 font-sans leading-relaxed mb-8 max-w-[50ch] mx-auto md:mx-0">
-                                Ethically raised, health-tested, and deeply loved. We don't just breed cats; we raise affectionate companions for your home.
+                                Ethically raised, health-tested, and deeply loved. We don&apos;t just breed cats; we raise affectionate companions for your home.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">

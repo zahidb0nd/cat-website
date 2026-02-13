@@ -16,9 +16,8 @@ import FAQSection from '@/components/FAQSection';
 import CareGuide from '@/components/CareGuide';
 import CertifiedBadgeBar from '@/components/CertifiedBadgeBar';
 import AboutTimeline from '@/components/AboutTimeline';
-import CurrencySwitcher from '@/components/CurrencySwitcher';
+
 import FloatingTrustBadge from '@/components/FloatingTrustBadge';
-import { LocationMap } from '@/components/ui/expand-map';
 import { ExpandableTabs } from '@/components/ui/expandable-tabs';
 import FooterSection from '@/components/ui/footer';
 
@@ -27,9 +26,6 @@ import Image from 'next/image';
 
 
 type SectionKey = 'home' | 'features' | 'kittens' | 'contact';
-
-const CARD =
-  'rounded-3xl bg-white shadow-[0_10px_30px_rgba(2,6,23,0.08)] ring-1 ring-slate-200/60';
 
 function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(' ');
@@ -141,10 +137,7 @@ export default function Page() {
         />
       </div>
 
-      {/* Currency Switcher */}
-      <div className="fixed top-4 right-4 z-50 hidden md:block">
-        <CurrencySwitcher />
-      </div>
+
 
       <FloatingContactButtons />
       <FloatingTrustBadge />
