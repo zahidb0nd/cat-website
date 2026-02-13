@@ -20,20 +20,7 @@ const INSTAGRAM_MOMENTS: InstagramMoment[] = [
         caption: 'Dreaming of chasing butterflies. 🦋 Sleep is when the growing magic happens.',
         likes: '1,245',
     },
-    {
-        id: 2,
-        src: '/kittens/hussaincatterybanglore-20260213-0003.jpg',
-        title: 'Socialization & Energy',
-        caption: 'Curiosity in every leap! Building confidence through play and exploration.',
-        likes: '982',
-    },
-    {
-        id: 3,
-        src: '/kittens/hussaincatterybanglore-20260213-0004.jpg',
-        title: 'Breed Standards',
-        caption: 'Those eyes tell a story of lineage, beauty, and perfect health.',
-        likes: '2,103',
-    },
+
     {
         id: 4,
         src: '/kittens/hussaincatterybanglore-20260213-0005.jpg',

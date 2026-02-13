@@ -9,7 +9,7 @@ import KittenGallery from '@/components/KittenGallery';
 import GrowthScrollAnimation from '@/components/GrowthScrollAnimation';
 import CatteryMoments from '@/components/CatteryMoments';
 import { LocationMap } from '@/components/ui/expand-map';
-import { AnimeNavBar } from '@/components/ui/anime-navbar';
+import { ExpandableTabs } from '@/components/ui/expandable-tabs';
 import FooterSection from '@/components/ui/footer';
 
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
@@ -92,16 +92,33 @@ export default function Page() {
     }
   });
 
-  const navItems = [
-    { name: 'Home', url: '#home', icon: Home },
-    { name: 'Features', url: '#features', icon: Info },
-    { name: 'Kittens', url: '#kittens', icon: FileText },
-    { name: 'Contact', url: '#contact', icon: Phone },
-  ];
+
+  const handleTabChange = (index: number | null) => {
+    if (index === null) return;
+    const targets = ['#home', '#features', '#kittens', '#contact'];
+    // Map index to target (skipping separators if any, but our list is clean)
+    // Our list: [Home, Features, Kittens, Contact] -> indices 0, 1, 2, 3
+    const targetId = targets[index];
+    if (targetId) {
+      const element = document.querySelector(targetId);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="min-h-screen text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
-      <AnimeNavBar items={navItems} defaultActive="Home" />
+      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+        <ExpandableTabs
+          tabs={[
+            { title: "Home", icon: Home },
+            { title: "Features", icon: Info },
+            { title: "Kittens", icon: FileText },
+            { title: "Contact", icon: Phone },
+          ]}
+          onChange={handleTabChange}
+          className="border-slate-200/60 bg-white/80 backdrop-blur-md shadow-xl"
+        />
+      </div>
 
       <main>
         <GrowthScrollAnimation />
@@ -189,7 +206,7 @@ export default function Page() {
               title="Contact & enquiries"
               subtitle="Ready to welcome a new family member? We'd love to hear from you."
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-8 max-w-4xl mx-auto">
                 <a
                   href="https://wa.me/916362693487"
                   target="_blank"
@@ -231,15 +248,7 @@ export default function Page() {
                   </div>
                 </a>
 
-                <div className="group relative p-1 rounded-3xl bg-slate-800/50 border border-slate-700 hover:border-indigo-500/50 transition-all duration-300 md:col-span-2 lg:col-span-1 overflow-visible">
-                  <a href="https://maps.app.goo.gl/ED5ppUUqbgASpJdx5" target="_blank" className="block h-full w-full">
-                    <LocationMap
-                      className="w-full h-full min-h-[300px]"
-                      location="Hussain Cattery, Bangalore"
-                      coordinates="13.0298° N, 77.5458° E" // Approx coordinates based on location
-                    />
-                  </a>
-                </div>
+
               </div>
 
               <div className="mt-12 max-w-3xl mx-auto">
