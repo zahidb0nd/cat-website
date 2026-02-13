@@ -159,8 +159,15 @@ export default function ReservationForm() {
                                         value={form.name}
                                         onChange={handleChange}
                                         placeholder="e.g. Priya Sharma"
+                                        aria-invalid={!!errors.name}
+                                        aria-describedby={errors.name ? 'res-name-error' : undefined}
                                         className="w-full px-4 py-3 rounded-xl border border-cat-beige bg-cat-cream/50 text-cat-charcoal placeholder:text-cat-slate/50 text-base focus:outline-none focus:ring-2 focus:ring-cat-coral/40 focus:border-cat-coral transition-all"
                                     />
+                                    {errors.name && (
+                                        <p id="res-name-error" className="text-red-500 text-sm mt-1">
+                                            {errors.name}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Phone */}
@@ -184,9 +191,16 @@ export default function ReservationForm() {
                                             value={form.phone}
                                             onChange={handleChange}
                                             placeholder="98765 43210"
+                                            aria-invalid={!!errors.phone}
+                                            aria-describedby={errors.phone ? 'res-phone-error' : undefined}
                                             className="w-full px-4 py-3 rounded-r-xl border border-cat-beige bg-cat-cream/50 text-cat-charcoal placeholder:text-cat-slate/50 text-base focus:outline-none focus:ring-2 focus:ring-cat-coral/40 focus:border-cat-coral transition-all"
                                         />
                                     </div>
+                                    {errors.phone && (
+                                        <p id="res-phone-error" className="text-red-500 text-sm mt-1">
+                                            {errors.phone}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Breed */}
@@ -203,6 +217,8 @@ export default function ReservationForm() {
                                         required
                                         value={form.breed}
                                         onChange={handleChange}
+                                        aria-invalid={!!errors.breed}
+                                        aria-describedby={errors.breed ? 'res-breed-error' : undefined}
                                         className="w-full px-4 py-3 rounded-xl border border-cat-beige bg-cat-cream/50 text-cat-charcoal text-base focus:outline-none focus:ring-2 focus:ring-cat-coral/40 focus:border-cat-coral transition-all appearance-none"
                                     >
                                         <option value="" disabled>
@@ -214,6 +230,11 @@ export default function ReservationForm() {
                                             </option>
                                         ))}
                                     </select>
+                                    {errors.breed && (
+                                        <p id="res-breed-error" className="text-red-500 text-sm mt-1">
+                                            {errors.breed}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Message */}
@@ -232,8 +253,15 @@ export default function ReservationForm() {
                                         value={form.message}
                                         onChange={handleChange}
                                         placeholder="Tell us about your ideal kitten..."
+                                        aria-invalid={!!errors.message}
+                                        aria-describedby={errors.message ? 'res-message-error' : undefined}
                                         className="w-full px-4 py-3 rounded-xl border border-cat-beige bg-cat-cream/50 text-cat-charcoal placeholder:text-cat-slate/50 text-base focus:outline-none focus:ring-2 focus:ring-cat-coral/40 focus:border-cat-coral transition-all resize-none"
                                     />
+                                    {errors.message && (
+                                        <p id="res-message-error" className="text-red-500 text-sm mt-1">
+                                            {errors.message}
+                                        </p>
+                                    )}
                                 </div>
                             </div>
 
