@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Ubuntu } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import AnimationProvider from "@/components/AnimationProvider";
 
 
 const playfair = Playfair_Display({
@@ -87,9 +88,11 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${ubuntu.variable} font-sans antialiased`}
       >
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <AnimationProvider>
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </AnimationProvider>
       </body>
     </html>
   );
