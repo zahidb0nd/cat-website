@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Ubuntu } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { safeJsonLdStringify } from "@/lib/utils";
 
 
@@ -99,6 +99,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-558D4NWZ"} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(jsonLd) }}
@@ -110,9 +111,6 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
         </SmoothScroll>
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
       </body>
     </html>
   );
