@@ -68,8 +68,8 @@ const jsonLd = {
     "Pedigree kittens",
   ],
   sameAs: ["https://www.instagram.com/hussaincatterybanglore/"],
-  priceRange: "$$",
-  image: "/logo.png",
+  priceRange: "₹₹₹",
+  image: "https://hussaincattery.com/logo.png",
 };
 
 export default function RootLayout({
