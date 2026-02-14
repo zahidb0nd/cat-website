@@ -180,7 +180,7 @@ export default function BreedShowcase() {
 
     return (
         <>
-            <section id="breed-gallery" className="py-24 bg-white">
+            <section id="kittens" className="py-24 bg-white">
                 <div className="container mx-auto px-6 md:px-12">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-4xl md:text-5xl font-bold text-cattery-dark mb-4">

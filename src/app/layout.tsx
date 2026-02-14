@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Ubuntu } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 
 const playfair = Playfair_Display({
@@ -17,6 +18,7 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hussain-cattery.vercel.app'),
   title: "Hussain Cattery | World-Class WCF Registered Maine Coon & Bengal Breeder",
   description:
     "Established in 2017, Hussain Cattery is Bangalore's premier WCF & FCI registered breeder specializing in Maine Coon, Bengal, Persian, and Siberian kittens. Ethical breeding with global health standards.",
@@ -31,11 +33,24 @@ export const metadata: Metadata = {
     "pedigree kittens Bangalore",
   ],
   openGraph: {
-    title: "Hussain Cattery | Premium WCF & FCI Registered Kittens in Bangalore",
-    description:
-      "Ethical breeding, exceptional temperaments. Premium pedigree kittens raised in a loving home since 2017.",
-    type: "website",
-    locale: "en_IN",
+    title: 'Hussain Cattery | Premium Maine Coon & Bengal Kittens',
+    description: 'Ethically bred, health-tested kittens in Bangalore. WCF Registered Member.',
+    url: 'https://hussain-cattery.vercel.app',
+    siteName: 'Hussain Cattery',
+    images: [
+      {
+        url: '/logo.png',
+        alt: 'Hussain Cattery Logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hussain Cattery | Premium Kittens',
+    description: 'Ethically bred Maine Coons in Bangalore.',
+    images: ['/logo.png'],
   },
 };
 
@@ -90,6 +105,9 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
         </SmoothScroll>
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );

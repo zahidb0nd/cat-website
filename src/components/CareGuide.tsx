@@ -397,7 +397,7 @@ export default function CareGuide() {
     const [selectedGuide, setSelectedGuide] = useState<typeof guides[0] | null>(null);
 
     return (
-        <section className="py-20 bg-white">
+        <section id="care-guide" className="py-20 bg-white">
             <div className="container mx-auto px-4 max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
                 allow: '/',
             },
         ],
-        sitemap: 'https://hussaincattery.com/sitemap.xml',
+        sitemap: 'https://hussain-cattery.vercel.app/sitemap.xml',
     };
 }

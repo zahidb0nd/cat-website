@@ -102,7 +102,7 @@ export default function Page() {
 
   const handleTabChange = (index: number | null) => {
     if (index === null) return;
-    const targets = ['#home', '#features', '#breed-gallery', '#contact'];
+    const targets = ['#home', '#features', '#kittens', '#contact'];
     // Map index to target (skipping separators if any, but our list is clean)
     // Our list: [Home, Features, Kittens, Contact] -> indices 0, 1, 2, 3
     const targetId = targets[index];
