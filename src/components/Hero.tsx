@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowRight, Heart, Trophy, Sparkles } from 'lucide-react';
 import { TrustBadge } from './hero/TrustBadge';
 import { FloatingBadge } from './hero/FloatingBadge';
+import { ExperienceBadge } from './ui/experience-badge';
 import { useEffect, useState } from 'react';
 
 function useIsMobile() {
@@ -44,9 +45,13 @@ export default function Hero() {
                                 <TrustBadge />
                             </div>
 
-                            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-cat-charcoal leading-[1.1] mb-6">
+                            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-cat-charcoal leading-[1.1] mb-4">
                                 The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cat-coral to-pink-500">Purrfect</span> start to your family.
                             </h1>
+
+                            <div className="mb-8 flex justify-center md:justify-start">
+                                <ExperienceBadge />
+                            </div>
 
                             <p className="text-lg md:text-xl text-slate-600 font-sans leading-relaxed mb-8 max-w-[50ch] mx-auto md:mx-0">
                                 Ethically raised, health-tested, and deeply loved. We don&apos;t just breed cats; we raise affectionate companions for your home.
