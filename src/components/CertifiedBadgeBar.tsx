@@ -49,7 +49,7 @@ export default function CertifiedBadgeBar() {
                         </div>
                         <div>
                             <p className="text-white font-bold text-sm">Established 2017</p>
-                            <p className="text-white/50 text-xs">{new Date().getFullYear() - 2017}+ Years of Excellence</p>
+                            <p className="text-white/50 text-xs" suppressHydrationWarning>{new Date().getFullYear() - 2017}+ Years of Excellence</p>
                         </div>
                     </div>
                 </motion.div>

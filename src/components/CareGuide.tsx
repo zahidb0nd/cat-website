@@ -148,7 +148,7 @@ const guides = [
                     </li>
                 </ul>
                 <p className="mt-6 font-bold text-cat-charcoal">
-                    Hussain Cattery has been WCF & FCI registered since 2017, with a proven track record of producing healthy, well-socialized kittens across 7 premium breeds.
+                    Serving the Global Cat Community Since 2017, with a proven track record of producing healthy, well-socialized kittens across 7 premium breeds.
                 </p>
             </>
         ),
@@ -166,7 +166,7 @@ const guides = [
                 <div className="space-y-6">
                     <div>
                         <h4 className="font-bold text-lg text-cat-charcoal mb-1">World Cat Federation (WCF) — Our Standard</h4>
-                        <p>The WCF is one of the world&apos;s largest federations, with member clubs in 130+ countries. It enforces rigorous breed standards, mandatory health testing, and strict ethical guidelines. Hussain Cattery has been WCF-registered since 2017.</p>
+                        <p>The WCF is one of the world&apos;s largest federations, with member clubs in 130+ countries. It enforces rigorous breed standards, mandatory health testing, and strict ethical guidelines. Hussain Cattery has been serving the global cat community since 2017.</p>
                     </div>
                     <div>
                         <h4 className="font-bold text-lg text-cat-charcoal mb-1">TICA (The International Cat Association)</h4>
@@ -330,19 +330,9 @@ const guides = [
 function GuideModal({ guide, onClose }: { guide: typeof guides[0]; onClose: () => void }) {
     // Scroll lock
     useEffect(() => {
-        const originalStyle = {
-            overflow: document.body.style.overflow,
-            height: document.body.style.height,
-        };
-
         document.body.style.overflow = 'hidden';
-        document.body.style.height = '100vh';
-        document.documentElement.style.height = '100vh';
-
         return () => {
-            document.body.style.overflow = originalStyle.overflow;
-            document.body.style.height = originalStyle.height;
-            document.documentElement.style.height = '';
+            document.body.style.overflow = 'unset';
         };
     }, []);
 
@@ -359,7 +349,7 @@ function GuideModal({ guide, onClose }: { guide: typeof guides[0]; onClose: () =
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.3 }}
-                className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl flex flex-col max-h-[70vh] overflow-hidden"
+                className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Header Section - Fixed at top */}
@@ -383,7 +373,7 @@ function GuideModal({ guide, onClose }: { guide: typeof guides[0]; onClose: () =
 
                 {/* Scrollable Content */}
                 <div
-                    className="overflow-y-auto overscroll-contain flex-1 p-6 pb-10 md:p-8 pt-4 font-sans text-cat-charcoal/80 text-sm md:text-base leading-relaxed"
+                    className="max-h-[70vh] overflow-y-auto overscroll-contain flex-1 p-6 pb-10 md:p-8 pt-4 font-sans text-cat-charcoal/80 text-sm md:text-base leading-relaxed"
                     style={{ WebkitOverflowScrolling: 'touch' }}
                 >
                     {guide.content}

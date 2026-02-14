@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Playfair_Display, Ubuntu } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import { GoogleAnalytics } from '@next/third-parties/google';
 
 
 const playfair = Playfair_Display({
@@ -52,6 +51,9 @@ export const metadata: Metadata = {
     description: 'Ethically bred Maine Coons in Bangalore.',
     images: ['/logo.png'],
   },
+  verification: {
+    google: "gCzi1dEagRuU9HK7HeJ2Km9T9hKpdE4mMEGJi6MifYU",
+  },
 };
 
 const jsonLd = {
@@ -61,6 +63,7 @@ const jsonLd = {
   description:
     "Bangalore's premier WCF & FCI registered cattery specializing in Maine Coon, Bengal, Persian, Ragdoll, Siberian, British Shorthair, and Himalayan kittens.",
   foundingDate: "2017",
+  yearsInOperation: new Date().getFullYear() - 2017,
   telephone: "+916362693487",
   email: "hussaincatterybanglore@gmail.com",
   url: "https://hussaincattery.com",
@@ -82,8 +85,8 @@ const jsonLd = {
     "Pedigree kittens",
   ],
   sameAs: ["https://www.instagram.com/hussaincatterybanglore/"],
-  priceRange: "$$",
-  image: "/logo.png",
+  priceRange: "₹₹₹",
+  image: "https://hussaincattery.com/logo.png",
 };
 
 export default function RootLayout({
@@ -96,7 +99,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(jsonLd) }}
         />
       </head>
       <body

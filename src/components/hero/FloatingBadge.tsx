@@ -16,15 +16,15 @@ export function FloatingBadge({ icon: Icon, text, className, delay = 'none' }: F
     return (
         <div
             className={cn(
-                "absolute flex items-center gap-3 p-4 bg-white rounded-2xl shadow-xl shadow-cattery-coral/20 border border-white/50 backdrop-blur-sm z-20",
+                "absolute flex items-center gap-3 p-4 bg-white rounded-2xl shadow-xl shadow-cat-coral/20 border border-white/50 backdrop-blur-sm z-20",
                 animationClass,
                 className
             )}
         >
-            <div className="p-2 bg-cattery-cream rounded-full text-cattery-coral">
+            <div className="p-2 bg-cat-cream rounded-full text-cat-coral">
                 <Icon size={20} />
             </div>
-            <span className="text-sm font-bold text-cattery-dark">{text}</span>
+            <span className="text-sm font-bold text-cat-charcoal">{text}</span>
         </div>
     );
 }

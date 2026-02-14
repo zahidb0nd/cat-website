@@ -44,14 +44,29 @@ const reviews = [
 // Double the array for seamless loop
 const doubledReviews = [...reviews, ...reviews];
 
+// Pre-render common star counts for maximum performance
+const PRE_RENDERED_STARS = Array.from({ length: 5 }).map((_, i) => (
+    <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
+));
+
 function StarRating({ count }: { count: number }) {
-    return (
-        <div className="flex gap-0.5">
-            {Array.from({ length: count }).map((_, i) => (
-                <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
-            ))}
-        </div>
-    );
+    const starCount = Math.floor(count);
+
+    // Fast path for common cases
+    if (starCount <= 5) {
+        return (
+            <div className="flex gap-0.5">
+                {PRE_RENDERED_STARS.slice(0, starCount)}
+            </div>
+        );
+    }
+
+    const stars = [];
+    for (let i = 0; i < starCount; i++) {
+        stars.push(<Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />);
+    }
+
+    return <div className="flex gap-0.5">{stars}</div>;
 }
 
 export default function Testimonials() {

@@ -1,35 +1,33 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle, Info, FileText } from 'lucide-react';
+import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle } from 'lucide-react';
 
 import Hero from '@/components/Hero';
-import KittenGallery from '@/components/KittenGallery';
 import FloatingContactButtons from '@/components/FloatingContactButtons';
-import ReservationForm from '@/components/ReservationForm';
+import Navbar from '@/components/Navbar';
 
-import CatteryMoments from '@/components/CatteryMoments';
-import Testimonials from '@/components/Testimonials';
-import GoogleMapSection from '@/components/GoogleMapSection';
-import FAQSection from '@/components/FAQSection';
-import CareGuide from '@/components/CareGuide';
-import CertifiedBadgeBar from '@/components/CertifiedBadgeBar';
-import AboutTimeline from '@/components/AboutTimeline';
+const KittenGallery = dynamic(() => import('@/components/KittenGallery'));
+const ReservationForm = dynamic(() => import('@/components/ReservationForm'));
+const CatteryMoments = dynamic(() => import('@/components/CatteryMoments'));
+const Testimonials = dynamic(() => import('@/components/Testimonials'));
+const GoogleMapSection = dynamic(() => import('@/components/GoogleMapSection'));
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
+const CareGuide = dynamic(() => import('@/components/CareGuide'));
+const CertifiedBadgeBar = dynamic(() => import('@/components/CertifiedBadgeBar'));
+const AboutTimeline = dynamic(() => import('@/components/AboutTimeline'));
 
 import FloatingTrustBadge from '@/components/FloatingTrustBadge';
-import { ExpandableTabs } from '@/components/ui/expandable-tabs';
-import FooterSection from '@/components/ui/footer';
+
+const FooterSection = dynamic(() => import('@/components/ui/footer'));
 
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
-import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 
 type SectionKey = 'home' | 'features' | 'kittens' | 'contact';
-
-function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(' ');
-}
 
 function SectionShell({
   id,
@@ -93,51 +91,15 @@ export default function Page() {
   );
 
   // Fix: Force scroll to top on mount to prevent browser starting at bottom
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       window.history.scrollRestoration = 'manual';
     }
-  });
-
-
-  const handleTabChange = (index: number | null) => {
-    if (index === null) return;
-    const targets = ['#home', '#features', '#kittens', '#contact'];
-    // Map index to target (skipping separators if any, but our list is clean)
-    // Our list: [Home, Features, Kittens, Contact] -> indices 0, 1, 2, 3
-    const targetId = targets[index];
-    if (targetId) {
-      const element = document.querySelector(targetId);
-      element?.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  }, []);
 
   return (
     <div className="min-h-screen text-cat-charcoal font-sans selection:bg-cat-coral/20 selection:text-cat-charcoal">
-      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3">
-        <a href="#home" className="shrink-0">
-          <Image
-            src="/logo.png"
-            alt="Hussain Cattery Logo"
-            width={96}
-            height={96}
-            className="h-16 w-16 md:h-24 md:w-24 rounded-full shadow-lg ring-2 ring-white/60 object-cover"
-            priority
-          />
-        </a>
-        <ExpandableTabs
-          tabs={[
-            { title: "Home", icon: Home },
-            { title: "Features", icon: Info },
-            { title: "Kittens", icon: FileText },
-            { title: "Contact", icon: Phone },
-          ]}
-          onChange={handleTabChange}
-          className="border-slate-200/60 bg-white/80 backdrop-blur-md shadow-xl"
-        />
-      </div>
-
-
+      <Navbar />
 
       <FloatingContactButtons />
       <FloatingTrustBadge />
@@ -228,7 +190,7 @@ export default function Page() {
                 <a
                   href="https://wa.me/916362693487"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="group relative p-8 rounded-3xl bg-slate-800/50 border border-slate-700 hover:border-indigo-500/50 hover:bg-slate-800 transition-all duration-300"
                 >
                   <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -273,7 +235,9 @@ export default function Page() {
           </div>
 
           {/* Trust-building sections */}
-          <CareGuide />
+          <div id="care-guide">
+            <CareGuide />
+          </div>
           <Testimonials />
           <FAQSection />
           <GoogleMapSection />
