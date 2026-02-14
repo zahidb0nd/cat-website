@@ -5,7 +5,7 @@ export function TrustBadge() {
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg shadow-cat-coral/10 border border-cat-beige animate-fade-in-up">
             <PawPrint size={16} className="text-cat-coral" />
             <span className="text-sm font-bold text-cat-slate tracking-wide uppercase">
-                WCF Registered Member · Bangalore · Est. 2017
+                WCF REGISTERED CATTERY • BANGALORE • EST. 2017
             </span>
         </div>
     );

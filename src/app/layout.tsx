@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Hussain Cattery | Premium Maine Coon & Bengal Kittens',
-    description: 'Ethically bred, health-tested kittens in Bangalore. WCF Registered Member.',
+    description: 'Ethically bred, health-tested kittens in Bangalore. WCF Registered Cattery.',
     url: 'https://hussain-cattery.vercel.app',
     siteName: 'Hussain Cattery',
     images: [
