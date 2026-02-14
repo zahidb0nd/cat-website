@@ -6,15 +6,23 @@ import Image from 'next/image';
 import { X, MapPin, Smile, Ruler, Scissors, Baby } from 'lucide-react';
 import { breeds, type Breed } from '@/lib/breeds';
 
-/** Map breed IDs to actual filenames on disk (extensions vary) */
-const breedImages: Record<string, string> = {
-    'maine-coon': '/kittens/maine-coon.jpeg',
-    'bengal': '/kittens/bengal.jpeg',
-    'persian': '/kittens/persian.jpeg',
-    'ragdoll': '/kittens/Ragdoll.jpg',
-    'siberian': '/kittens/siberian.jpeg',
-    'british-shorthair': '/kittens/british-shorthair.jpeg',
-    'himalayan': '/kittens/himalayan.jpeg',
+import maineCoonObj from '../../public/kittens/maine-coon.jpeg';
+import bengalObj from '../../public/kittens/bengal.jpeg';
+import persianObj from '../../public/kittens/persian.jpeg';
+import ragdollObj from '../../public/kittens/Ragdoll.jpg';
+import siberianObj from '../../public/kittens/siberian.jpeg';
+import britishShorthairObj from '../../public/kittens/british-shorthair.jpeg';
+import himalayanObj from '../../public/kittens/himalayan.jpeg';
+
+/** Map breed IDs to static image objects for blur placeholder support */
+const breedImages: Record<string, any> = {
+    'maine-coon': maineCoonObj,
+    'bengal': bengalObj,
+    'persian': persianObj,
+    'ragdoll': ragdollObj,
+    'siberian': siberianObj,
+    'british-shorthair': britishShorthairObj,
+    'himalayan': himalayanObj,
 };
 
 
@@ -69,6 +77,7 @@ function BreedModal({ breed, onClose }: { breed: Breed; onClose: () => void }) {
                             fill
                             className="object-cover md:rounded-l-3xl rounded-t-3xl md:rounded-tr-none"
                             sizes="(max-width: 768px) 100vw, 40vw"
+                            placeholder="blur"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 to-transparent md:rounded-l-3xl rounded-t-3xl md:rounded-tr-none" />
                         <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-10">
@@ -166,6 +175,7 @@ export default function BreedShowcase() {
                                         fill
                                         className="object-cover"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        placeholder="blur"
                                     />
                                 </div>
 

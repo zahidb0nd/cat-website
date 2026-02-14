@@ -60,35 +60,90 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Hussain Cattery",
-  description:
-    "Bangalore's premier WCF & FCI registered cattery specializing in Maine Coon, Bengal, Persian, Ragdoll, Siberian, British Shorthair, and Himalayan kittens.",
-  foundingDate: "2017",
-  yearsInOperation: new Date().getFullYear() - 2017,
-  telephone: "+916362693487",
-  email: "hussaincatterybanglore@gmail.com",
-  url: "https://hussaincattery.com",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Bangalore",
-    addressRegion: "Karnataka",
-    addressCountry: "IN",
-  },
-  knowsAbout: [
-    "Maine Coon cats",
-    "Bengal cats",
-    "Persian cats",
-    "Ragdoll cats",
-    "Siberian cats",
-    "British Shorthair cats",
-    "Himalayan cats",
-    "Cat breeding",
-    "Pedigree kittens",
-  ],
-  sameAs: ["https://www.instagram.com/hussaincatterybanglore/"],
-  priceRange: "₹₹₹",
-  image: "https://hussaincattery.com/logo.png",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://hussain-cattery.vercel.app/#local-business",
+      "name": "Hussain Cattery",
+      "description":
+        "Bangalore's premier WCF & FCI registered cattery specializing in Maine Coon, Bengal, Persian, Ragdoll, Siberian, British Shorthair, and Himalayan kittens.",
+      "foundingDate": "2017",
+      "yearsInOperation": new Date().getFullYear() - 2017,
+      "telephone": "+916362693487",
+      "email": "hussaincatterybanglore@gmail.com",
+      "url": "https://hussain-cattery.vercel.app",
+      "image": "https://hussain-cattery.vercel.app/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "12.9716",
+        "longitude": "77.5946"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+916362693487",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi", "Kannada"]
+      },
+      "sameAs": ["https://www.instagram.com/hussaincatterybanglore/"],
+      "priceRange": "₹₹₹",
+      "knowsAbout": [
+        "Maine Coon cats",
+        "Bengal cats",
+        "Persian cats",
+        "Ragdoll cats",
+        "Siberian cats",
+        "British Shorthair cats",
+        "Himalayan cats",
+        "Cat breeding",
+        "Pedigree kittens"
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Maine Coon Kitten",
+      "image": "https://hussain-cattery.vercel.app/kittens/maine-coon.jpeg",
+      "description": "Purebred Maine Coon kittens with WCF registration.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Hussain Cattery"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://hussain-cattery.vercel.app/#kittens",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://hussain-cattery.vercel.app/#local-business"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Bengal Kitten",
+      "image": "https://hussain-cattery.vercel.app/kittens/bengal.jpeg",
+      "description": "Exotic Bengal kittens with rosette patterns.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Hussain Cattery"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://hussain-cattery.vercel.app/#kittens",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://hussain-cattery.vercel.app/#local-business"
+        }
+      }
+    }
+  ]
 };
 
 export default function RootLayout({
