@@ -20,9 +20,9 @@ const ubuntu = Ubuntu({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hussain-cattery.vercel.app'),
-  title: "Hussain Cattery | World-Class WCF Registered Maine Coon & Bengal Breeder",
+  title: "Hussain Cattery | Premium Maine Coon & Bengal Kittens in Bangalore",
   description:
-    "Established in 2017, Hussain Cattery is Bangalore's premier WCF & FCI registered breeder specializing in Maine Coon, Bengal, Persian, and Siberian kittens. Ethical breeding with global health standards.",
+    "Established in 2017, Hussain Cattery is a WCF Registered Cattery in Bangalore. We offer health-tested, ethically raised Maine Coon and Bengal kittens. 9+ years of breeding excellence.",
   keywords: [
     "Hussain Cattery",
     "kittens for sale Bangalore",
@@ -66,7 +66,7 @@ const jsonLd = {
       "@id": "https://hussain-cattery.vercel.app/#local-business",
       "name": "Hussain Cattery",
       "description":
-        "Bangalore's premier WCF & FCI registered cattery specializing in Maine Coon, Bengal, Persian, Ragdoll, Siberian, British Shorthair, and Himalayan kittens.",
+        "Professional WCF Registered Cattery in Bangalore specializing in Maine Coon and Bengal kittens since 2017.",
       "foundingDate": "2017",
       "yearsInOperation": new Date().getFullYear() - 2017,
       "telephone": "+916362693487",
