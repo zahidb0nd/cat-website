@@ -47,6 +47,7 @@ const jsonLd = {
   description:
     "Bangalore's premier WCF & FCI registered cattery specializing in Maine Coon, Bengal, Persian, Ragdoll, Siberian, British Shorthair, and Himalayan kittens.",
   foundingDate: "2017",
+  yearsInOperation: new Date().getFullYear() - 2017,
   telephone: "+916362693487",
   email: "hussaincatterybanglore@gmail.com",
   url: "https://hussaincattery.com",
