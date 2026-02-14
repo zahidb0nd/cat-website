@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Playfair_Display, Ubuntu } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { safeJsonLdStringify } from "@/lib/utils";
 
 
 const playfair = Playfair_Display({
