@@ -8,6 +8,8 @@ type SocialPost = {
     id: number;
     src: string;
     caption: string;
+    breed?: string;
+    color?: string;
     likes: string;
     comments: string;
     isReel?: boolean;
@@ -22,6 +24,8 @@ const socialPosts: SocialPost[] = [
         id: 1,
         src: '/kittens/persian.jpeg',
         caption: 'Sunday snoozes with the floof cloud ☁️ #PersianCat',
+        breed: 'Persian',
+        color: 'White',
         likes: '2,847',
         comments: '64',
         aspect: 'tall',
@@ -31,6 +35,8 @@ const socialPosts: SocialPost[] = [
         id: 2,
         src: '/kittens/maine-coon.jpeg',
         caption: 'Our giant gentle kings are growing fast! 🦁',
+        breed: 'Maine Coon',
+        color: 'Brown Tabby',
         likes: '3,102',
         comments: '89',
         aspect: 'square',
@@ -40,6 +46,8 @@ const socialPosts: SocialPost[] = [
         id: 3,
         src: '/kittens/hussaincatterybanglore-20260213-0005.jpg',
         caption: 'Another happy family in Indiranagar! ❤️ #CatParents',
+        breed: 'British Shorthair',
+        color: 'Golden Shaded',
         likes: '4,521',
         comments: '112',
         aspect: 'tall',
@@ -49,6 +57,8 @@ const socialPosts: SocialPost[] = [
         id: 4,
         src: '/kittens/hussaincatterybanglore-20260213-0006.jpg',
         caption: 'Playtime madness! 🧶',
+        breed: 'Persian',
+        color: 'Golden and White',
         likes: '6,230',
         comments: '203',
         isReel: true,
@@ -59,6 +69,8 @@ const socialPosts: SocialPost[] = [
         id: 5,
         src: '/kittens/himalayan.jpeg',
         caption: 'New litter arriving soon... stay tuned! 🐾',
+        breed: 'Himalayan',
+        color: 'Colorpoint',
         likes: '5,678',
         comments: '187',
         aspect: 'square',
@@ -68,6 +80,8 @@ const socialPosts: SocialPost[] = [
         id: 6,
         src: '/kittens/hussaincatterybanglore-20260213-0007.jpg',
         caption: 'Spa day for the queens 💅',
+        breed: 'British Shorthair',
+        color: 'Silver and Golden',
         likes: '1,945',
         comments: '42',
         aspect: 'square',
@@ -77,6 +91,8 @@ const socialPosts: SocialPost[] = [
         id: 7,
         src: '/kittens/bengal.jpeg',
         caption: 'Wild looks, gentle heart 🐆 #BengalCat #MiniLeopard',
+        breed: 'Bengal',
+        color: 'Brown Rosetted',
         likes: '3,891',
         comments: '156',
         aspect: 'tall',
@@ -86,6 +102,8 @@ const socialPosts: SocialPost[] = [
         id: 8,
         src: '/kittens/hussaincatterybanglore-20260213-0002.jpg',
         caption: 'Morning cuddles are non-negotiable in this house 🥰',
+        breed: 'Ragdoll',
+        color: 'Colorpoint',
         likes: '2,334',
         comments: '73',
         aspect: 'square',
@@ -145,7 +163,7 @@ export default function CatteryMoments() {
                                 <div className={`relative w-full ${aspectMap[post.aspect]} overflow-hidden`}>
                                     <Image
                                         src={post.src}
-                                        alt={post.caption}
+                                        alt={post.breed && post.color ? `${post.breed} ${post.color} kitten in Bangalore` : post.caption}
                                         fill
                                         className="object-cover transform transition-transform duration-700 group-hover:scale-110 will-change-transform"
                                         sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"

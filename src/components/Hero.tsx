@@ -93,7 +93,7 @@ export default function Hero() {
                             <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl ring-4 ring-white/50">
                                 <Image
                                     src="/kittens/kitten-1.jpg"
-                                    alt="Premium Maine Coon Kitten"
+                                    alt="Silver Tabby and White Maine Coon kitten in Bangalore"
                                     fill
                                     className="object-cover object-top will-change-transform"
                                     priority
