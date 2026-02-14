@@ -1,13 +1,14 @@
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://hussaincattery.com';
+
     return {
-        rules: [
-            {
-                userAgent: '*',
-                allow: '/',
-            },
-        ],
-        sitemap: 'https://hussaincattery.com/sitemap.xml',
+        rules: {
+            userAgent: '*',
+            allow: '/',
+            disallow: ['/private', '/admin'],
+        },
+        sitemap: `${baseUrl}/sitemap.xml`,
     };
 }
