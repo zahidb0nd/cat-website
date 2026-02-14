@@ -148,7 +148,7 @@ const guides = [
                     </li>
                 </ul>
                 <p className="mt-6 font-bold text-cat-charcoal">
-                    Hussain Cattery has been WCF & FCI registered since 2017, with a proven track record of producing healthy, well-socialized kittens across 7 premium breeds.
+                    Serving the Global Cat Community Since 2017, with a proven track record of producing healthy, well-socialized kittens across 7 premium breeds.
                 </p>
             </>
         ),
@@ -166,7 +166,7 @@ const guides = [
                 <div className="space-y-6">
                     <div>
                         <h4 className="font-bold text-lg text-cat-charcoal mb-1">World Cat Federation (WCF) — Our Standard</h4>
-                        <p>The WCF is one of the world&apos;s largest federations, with member clubs in 130+ countries. It enforces rigorous breed standards, mandatory health testing, and strict ethical guidelines. Hussain Cattery has been WCF-registered since 2017.</p>
+                        <p>The WCF is one of the world&apos;s largest federations, with member clubs in 130+ countries. It enforces rigorous breed standards, mandatory health testing, and strict ethical guidelines. Hussain Cattery has been serving the global cat community since 2017.</p>
                     </div>
                     <div>
                         <h4 className="font-bold text-lg text-cat-charcoal mb-1">TICA (The International Cat Association)</h4>
