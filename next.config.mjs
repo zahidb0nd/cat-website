@@ -9,6 +9,7 @@ const withPWA = withPWAInit({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /* Speed & Asset Optimization */
   images: {
     formats: ['image/avif', 'image/webp'],
   },
