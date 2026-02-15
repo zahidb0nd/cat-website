@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { X, MapPin, Smile, Ruler, Scissors, Baby, ArrowRight } from 'lucide-react';
 import { breeds, type Breed } from '@/lib/breeds';
 
@@ -15,7 +15,7 @@ import britishShorthairObj from '../../public/kittens/british-shorthair.jpeg';
 import himalayanObj from '../../public/kittens/himalayan.jpeg';
 
 /** Map breed IDs to static image objects for blur placeholder support */
-const breedImages: Record<string, any> = {
+const breedImages: Record<string, StaticImageData> = {
     'maine-coon': maineCoonObj,
     'bengal': bengalObj,
     'persian': persianObj,
@@ -202,17 +202,6 @@ export default function BreedShowcase() {
                                         <p className="text-slate-300 text-sm leading-relaxed opacity-0 max-h-0 overflow-hidden transition-all duration-500 md:group-hover:opacity-100 md:group-hover:max-h-24 md:group-focus-within:opacity-100 md:group-focus-within:max-h-24">
                                             {breed.description}
                                         </p>
-                                        <div className="mt-4 opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100 transition-opacity duration-500 delay-100">
-                                            <a
-                                                href={`https://wa.me/916362693487?text=${encodeURIComponent(`Hi Hussain, I am interested in the ${breed.title} kitten and would like to know the price and shipping details.`)}`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full text-white text-sm font-semibold transition-colors border border-white/20"
-                                                onClick={(e) => e.stopPropagation()}
-                                            >
-                                                <span>Inquire for Price</span>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </motion.div>

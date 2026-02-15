@@ -6,7 +6,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle } from 'lucide-react';
 
 import Hero from '@/components/Hero';
-import FloatingContactButtons from '@/components/FloatingContactButtons';
 import Navbar from '@/components/Navbar';
 
 const KittenGallery = dynamic(() => import('@/components/KittenGallery'));
@@ -101,7 +100,6 @@ export default function Page() {
     <div className="min-h-screen text-cat-charcoal font-sans selection:bg-cat-coral/20 selection:text-cat-charcoal">
       <Navbar />
 
-      <FloatingContactButtons />
       <FloatingTrustBadge />
 
       <main>

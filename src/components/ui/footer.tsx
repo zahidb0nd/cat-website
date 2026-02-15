@@ -1,11 +1,5 @@
 import Link from 'next/link'
 
-// Import generic icons from lucide-react
-import {
-    Instagram,
-    MessageCircle,
-    Mail
-} from 'lucide-react'
 import { ExperienceBadge } from './experience-badge'
 
 const links = [
@@ -49,31 +43,6 @@ export default function FooterSection() {
                             <span>{link.title}</span>
                         </Link>
                     ))}
-                </div>
-                <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
-                    {/* Using generic icons for social links */}
-                    <Link
-                        href="https://www.instagram.com/hussaincatterybanglore/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        className="text-slate-400 hover:text-pink-600 block transition-colors">
-                        <Instagram className="size-6" />
-                    </Link>
-                    <Link
-                        href="https://wa.me/916362693487"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="WhatsApp"
-                        className="text-slate-400 hover:text-green-500 block transition-colors">
-                        <MessageCircle className="size-6" />
-                    </Link>
-                    <Link
-                        href="mailto:hello@hussaincattery.com"
-                        aria-label="Email"
-                        className="text-slate-400 hover:text-indigo-600 block transition-colors">
-                        <Mail className="size-6" />
-                    </Link>
                 </div>
                 <div className="flex justify-center mb-2">
                     <ExperienceBadge className="bg-slate-100 border-slate-200 text-slate-500" />
