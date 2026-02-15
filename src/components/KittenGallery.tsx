@@ -34,7 +34,7 @@ function DetailRow({ icon: Icon, label, value }: { icon: React.ElementType; labe
                 <Icon size={18} />
             </div>
             <div>
-                <p className="text-xs text-slate-400 uppercase tracking-wider font-bold">{label}</p>
+                <p className="text-xs text-slate-600 uppercase tracking-wider font-bold">{label}</p>
                 <p className="text-sm font-semibold text-cat-charcoal">{value}</p>
             </div>
         </div>
@@ -147,7 +147,7 @@ export default function BreedShowcase() {
                         </div>
                     </div>
 
-                    <div className="md:hidden flex items-center justify-end gap-2 text-slate-400 text-sm mb-4 px-2 animate-pulse">
+                    <div className="md:hidden flex items-center justify-end gap-2 text-slate-600 text-sm mb-4 px-2 animate-pulse">
                         <span>Swipe to explore</span>
                         <ArrowRight size={16} />
                     </div>

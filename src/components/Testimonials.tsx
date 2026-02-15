@@ -108,7 +108,7 @@ export default function Testimonials() {
                             </div>
                             <div>
                                 <p className="text-sm font-bold text-slate-900">{review.name}</p>
-                                <p className="text-xs text-slate-400">{review.location}</p>
+                                <p className="text-xs text-slate-600">{review.location}</p>
                             </div>
                         </div>
                     </div>
