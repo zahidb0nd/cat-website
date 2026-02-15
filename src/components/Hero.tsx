@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowRight, Heart, Trophy, Sparkles, Phone } from 'lucide-react';
+import { Heart, Trophy, Sparkles, Phone } from 'lucide-react';
 import { TrustBadge } from './hero/TrustBadge';
 import { FloatingBadge } from './hero/FloatingBadge';
 import { ExperienceBadge } from './ui/experience-badge';
@@ -25,7 +25,7 @@ export default function Hero() {
     const isMobile = useIsMobile();
 
     return (
-        <section className="relative w-full overflow-hidden bg-cat-cream min-h-screen flex items-center pt-24 pb-12 md:py-0">
+        <section className="relative w-full overflow-hidden bg-cat-cream min-h-screen flex items-center pt-20 pb-12 md:py-0">
             {/* Background Blob - Decorative */}
             <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-cat-coral/10 rounded-full blur-3xl -z-10" />
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/40 via-transparent to-transparent -z-10" />
@@ -41,7 +41,7 @@ export default function Hero() {
                             transition={{ duration: 0.8 }}
                             style={{ willChange: 'transform' }}
                         >
-                            <div className="mb-6 flex justify-center md:justify-start">
+                            <div className="mb-4 flex justify-center md:justify-start">
                                 <TrustBadge />
                             </div>
 
@@ -49,11 +49,11 @@ export default function Hero() {
                                 The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cat-coral to-pink-500">Purrfect</span> start to your family.
                             </h1>
 
-                            <div className="mb-8 flex justify-center md:justify-start">
+                            <div className="mb-6 flex justify-center md:justify-start">
                                 <ExperienceBadge />
                             </div>
 
-                            <p className="text-lg md:text-xl text-slate-600 font-sans leading-relaxed mb-8 max-w-[50ch] mx-auto md:mx-0">
+                            <p className="text-lg md:text-xl text-slate-600 font-sans leading-relaxed mb-6 max-w-[50ch] mx-auto md:mx-0">
                                 Ethically raised, health-tested, and deeply loved. We don&apos;t just breed cats; we raise affectionate companions for your home.
                             </p>
 
@@ -107,6 +107,7 @@ export default function Hero() {
                                     fill
                                     className="object-cover object-top will-change-transform"
                                     priority
+                                    loading="eager"
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                             </div>
