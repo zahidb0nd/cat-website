@@ -56,6 +56,24 @@ export const metadata: Metadata = {
   verification: {
     google: "gCzi1dEagRuU9HK7HeJ2Km9T9hKpdE4mMEGJi6MifYU",
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/icon-192x192.png',
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Hussain Cattery",
+  "alternateName": ["Hussain Cattery Bangalore", "Hussain Cats"],
+  "url": "https://hussain-cattery.vercel.app/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://hussain-cattery.vercel.app/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
 };
 
 const jsonLd = {
@@ -158,6 +176,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(websiteJsonLd) }}
         />
       </head>
       <body
