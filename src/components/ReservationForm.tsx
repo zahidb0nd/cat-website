@@ -327,7 +327,7 @@ export default function ReservationForm() {
                 >
                     <ShieldCheck size={16} />
                     <span>
-                        Registered with World Cat Federation and Feline Club of India since 2017
+                        Breeding Excellence Since 2017 | WCF & FCI Registered Cattery
                     </span>
                 </motion.div>
             </div>

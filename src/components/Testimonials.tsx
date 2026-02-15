@@ -36,7 +36,7 @@ const reviews = [
         name: 'Ananya Iyer',
         location: 'HSR Layout, Bangalore',
         rating: 5,
-        text: 'Visited the cattery by appointment — it is so clean and the cats are clearly well-loved. Established since 2017 and it shows!',
+        text: 'Visited the cattery by appointment — it is so clean and the cats are clearly well-loved. Established in 2017 and it shows!',
         avatar: 'AI',
     },
 ];

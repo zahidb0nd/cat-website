@@ -120,7 +120,7 @@ export default function AboutTimeline() {
                     <div className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full border border-cat-beige shadow-sm">
                         <ShieldCheck size={18} className="text-cat-coral" />
                         <span className="text-sm font-bold text-cat-charcoal">
-                            Serving the Global Cat Community Since 2017
+                            EST. 2017 • WCF REGISTERED
                         </span>
                     </div>
                 </motion.div>
