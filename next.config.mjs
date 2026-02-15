@@ -9,6 +9,9 @@ const withPWA = withPWAInit({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
   // ─── Security Headers (OWASP Best Practices) ──────────────────
   async headers() {
     return [

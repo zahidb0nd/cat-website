@@ -31,7 +31,7 @@ function MobileBottomNav() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-t border-slate-200 lg:hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] pb-[env(safe-area-inset-bottom)]">
-       <div className="flex justify-around items-center h-16 px-2">
+       <div className="flex justify-around items-center h-16 px-2 gap-2">
          {mobileTabs.map((tab, index) => {
             const isActive = activeTab === index;
             return (
