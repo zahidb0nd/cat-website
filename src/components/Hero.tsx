@@ -108,6 +108,7 @@ export default function Hero() {
                                     className="object-cover object-top will-change-transform"
                                     priority
                                     loading="eager"
+                                    fetchPriority="high"
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                             </div>

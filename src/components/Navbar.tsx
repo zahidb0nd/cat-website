@@ -38,7 +38,7 @@ function MobileBottomNav() {
               <button
                 key={tab.title}
                 onClick={() => handleTabClick(index, tab.targetId)}
-                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors duration-200 ${isActive ? 'text-cat-coral' : 'text-slate-400'}`}
+                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors duration-200 ${isActive ? 'text-cat-coral' : 'text-slate-600'}`}
               >
                 <tab.icon size={24} strokeWidth={isActive ? 2.5 : 2} />
                 <span className="text-[10px] font-medium tracking-wide">{tab.title}</span>

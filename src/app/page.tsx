@@ -8,19 +8,19 @@ import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle } 
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
 
-const KittenGallery = dynamic(() => import('@/components/KittenGallery'));
-const ReservationForm = dynamic(() => import('@/components/ReservationForm'));
-const CatteryMoments = dynamic(() => import('@/components/CatteryMoments'));
-const Testimonials = dynamic(() => import('@/components/Testimonials'));
-const GoogleMapSection = dynamic(() => import('@/components/GoogleMapSection'));
-const FAQSection = dynamic(() => import('@/components/FAQSection'));
-const CareGuide = dynamic(() => import('@/components/CareGuide'));
-const CertifiedBadgeBar = dynamic(() => import('@/components/CertifiedBadgeBar'));
-const AboutTimeline = dynamic(() => import('@/components/AboutTimeline'));
+const KittenGallery = dynamic(() => import('@/components/KittenGallery'), { ssr: false });
+const ReservationForm = dynamic(() => import('@/components/ReservationForm'), { ssr: false });
+const CatteryMoments = dynamic(() => import('@/components/CatteryMoments'), { ssr: false });
+const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false });
+const GoogleMapSection = dynamic(() => import('@/components/GoogleMapSection'), { ssr: false });
+const FAQSection = dynamic(() => import('@/components/FAQSection'), { ssr: false });
+const CareGuide = dynamic(() => import('@/components/CareGuide'), { ssr: false });
+const CertifiedBadgeBar = dynamic(() => import('@/components/CertifiedBadgeBar'), { ssr: false });
+const AboutTimeline = dynamic(() => import('@/components/AboutTimeline'), { ssr: false });
 
 import FloatingTrustBadge from '@/components/FloatingTrustBadge';
 
-const FooterSection = dynamic(() => import('@/components/ui/footer'));
+const FooterSection = dynamic(() => import('@/components/ui/footer'), { ssr: false });
 
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import { cn } from '@/lib/utils';
@@ -199,7 +199,7 @@ export default function Page() {
                       <Phone size={24} />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2">WhatsApp</h3>
-                    <p className="text-slate-400 mb-6">Fastest response time. Chat with us directly.</p>
+                    <p className="text-slate-600 mb-6">Fastest response time. Chat with us directly.</p>
                     <span className="inline-flex items-center text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform">
                       Chat now <ChevronDown className="-rotate-90 ml-1" size={16} />
                     </span>
@@ -219,7 +219,7 @@ export default function Page() {
                       <Mail size={24} />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2">Email</h3>
-                    <p className="text-slate-400 mb-6">Send us your detailed enquiries.</p>
+                    <p className="text-slate-600 mb-6">Send us your detailed enquiries.</p>
                     <span className="inline-flex items-center text-purple-400 font-semibold group-hover:translate-x-1 transition-transform">
                       Send email <ChevronDown className="-rotate-90 ml-1" size={16} />
                     </span>

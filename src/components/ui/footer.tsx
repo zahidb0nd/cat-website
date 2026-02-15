@@ -47,7 +47,7 @@ export default function FooterSection() {
                 <div className="flex justify-center mb-2">
                     <ExperienceBadge className="bg-slate-100 border-slate-200 text-slate-500" />
                 </div>
-                <span className="text-slate-400 block text-center text-sm"> © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Hussain Cattery, All rights reserved</span>
+                <span className="text-slate-600 block text-center text-sm"> © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Hussain Cattery, All rights reserved</span>
             </div>
         </footer>
     )

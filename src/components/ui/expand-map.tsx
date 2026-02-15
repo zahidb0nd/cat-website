@@ -296,7 +296,7 @@ export function LocationMap({
                             transition={{ duration: 0.2 }}
                         >
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                            <span className="text-[10px] font-medium text-slate-400 md:text-slate-500 tracking-wide uppercase">Live</span>
+                            <span className="text-[10px] font-medium text-slate-600 md:text-slate-500 tracking-wide uppercase">Live</span>
                         </motion.div>
                     </div>
 
@@ -315,7 +315,7 @@ export function LocationMap({
                         <AnimatePresence>
                             {isExpanded && (
                                 <motion.p
-                                    className="text-slate-400 md:text-slate-500 text-xs font-mono"
+                                    className="text-slate-600 md:text-slate-500 text-xs font-mono"
                                     initial={{ opacity: 0, y: -10, height: 0 }}
                                     animate={{ opacity: 1, y: 0, height: "auto" }}
                                     exit={{ opacity: 0, y: -10, height: 0 }}
@@ -342,7 +342,7 @@ export function LocationMap({
 
             {/* Click hint */}
             <motion.p
-                className="absolute -bottom-8 left-1/2 text-[10px] text-slate-400 whitespace-nowrap"
+                className="absolute -bottom-8 left-1/2 text-[10px] text-slate-600 whitespace-nowrap"
                 style={{ x: "-50%" }}
                 initial={{ opacity: 0 }}
                 animate={{
