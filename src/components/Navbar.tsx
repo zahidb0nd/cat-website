@@ -1,31 +1,20 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Home, Info, FileText, Phone, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { ExpandableTabs } from '@/components/ui/expandable-tabs';
-import { cn } from '@/lib/utils';
+
+const tabs = [
+  { title: "Home", icon: Home, targetId: "#home" },
+  { title: "About Us", icon: Info, targetId: "#features" },
+  { title: "Care Guide", icon: FileText, targetId: "#care-guide" },
+  { title: "Contact", icon: Phone, targetId: "#contact" },
+];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Handle scroll effect for background transparency if needed (optional polish)
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const tabs = [
-    { title: "Home", icon: Home, targetId: "#home" },
-    { title: "About Us", icon: Info, targetId: "#features" },
-    { title: "Care Guide", icon: FileText, targetId: "#care-guide" },
-    { title: "Contact", icon: Phone, targetId: "#contact" },
-  ];
 
   const handleTabChange = useCallback((index: number | null) => {
     if (index === null) return;
