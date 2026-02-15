@@ -100,11 +100,13 @@ summary {
 
 /* Ensure minimum 44x44px touch targets on mobile */
 @media (pointer: coarse) {
-
   a,
   button,
   [role="button"],
-  summary {
+  summary,
+  input,
+  select,
+  textarea {
     min-height: 44px;
     min-width: 44px;
   }
