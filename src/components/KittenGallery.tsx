@@ -15,7 +15,9 @@ import britishShorthairObj from '../../public/kittens/british-shorthair.jpeg';
 import himalayanObj from '../../public/kittens/himalayan.jpeg';
 
 /** Map breed IDs to static image objects for blur placeholder support */
-const breedImages: Record<string, any> = {
+import type { StaticImageData } from 'next/image';
+
+const breedImages: Record<string, StaticImageData> = {
     'maine-coon': maineCoonObj,
     'bengal': bengalObj,
     'persian': persianObj,

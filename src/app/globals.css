@@ -6,7 +6,13 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; removed to avoid conflict with Lenis */
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overscroll-behavior: none;
 }
 
 
