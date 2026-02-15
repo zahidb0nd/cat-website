@@ -49,7 +49,7 @@ export default function FloatingContactButtons() {
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ type: 'spring', bounce: 0.3, duration: 0.8 }}
-                    className="fixed bottom-6 right-6 flex flex-col items-end gap-4 z-50"
+                    className="fixed bottom-24 lg:bottom-6 right-6 flex flex-col items-end gap-4 z-50"
                 >
                     {/* WhatsApp Button + Preview + Tooltip */}
                     <div className="flex flex-col items-end gap-2">
