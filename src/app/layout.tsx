@@ -20,7 +20,10 @@ const ubuntu = Ubuntu({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hussain-cattery.vercel.app'),
-  title: "Hussain Cattery | Premium Maine Coon & Bengal Kittens in Bangalore",
+  title: {
+    template: '%s | Hussain Cattery',
+    default: 'Hussain Cattery | World-Class Maine Coon & Bengal Breeder',
+  },
   description:
     "Established in 2017, Hussain Cattery is a WCF Registered Cattery in Bangalore. We offer health-tested, ethically raised Maine Coon and Bengal kittens. 9+ years of breeding excellence.",
   keywords: [
@@ -57,8 +60,8 @@ export const metadata: Metadata = {
     google: "gCzi1dEagRuU9HK7HeJ2Km9T9hKpdE4mMEGJi6MifYU",
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
+    icon: '/icon.png',
+    shortcut: '/icon.png',
     apple: '/icon-192x192.png',
   },
 };
@@ -67,13 +70,8 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Hussain Cattery",
-  "alternateName": ["Hussain Cattery Bangalore", "Hussain Cats"],
-  "url": "https://hussain-cattery.vercel.app/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://hussain-cattery.vercel.app/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "alternateName": ["Hussain Cats", "Hussain Cattery Bangalore"],
+  "url": "https://hussain-cattery.vercel.app/"
 };
 
 const jsonLd = {
