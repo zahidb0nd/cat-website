@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: 'Hussain Cattery | World-Class Maine Coon & Bengal Breeder',
   },
   description:
-    "Established in 2017, Hussain Cattery is a WCF Registered Cattery in Bangalore. We offer health-tested, ethically raised Maine Coon and Bengal kittens. 9+ years of breeding excellence.",
+    "Established in 2017, Hussain Cattery is a premier WCF & FCI Registered breeder in Bangalore specializing in Maine Coon and Bengal kittens.",
   keywords: [
     "Hussain Cattery",
     "kittens for sale Bangalore",
@@ -89,7 +89,7 @@ const jsonLd = {
       "@id": "https://hussain-cattery.vercel.app/#local-business",
       "name": "Hussain Cattery",
       "description":
-        "Professional WCF Registered Cattery in Bangalore specializing in Maine Coon and Bengal kittens since 2017.",
+        "Established in 2017, Hussain Cattery is a professional WCF Registered Cattery in Bangalore specializing in Maine Coon and Bengal kittens.",
       "foundingDate": "2017",
       "yearsInOperation": new Date().getFullYear() - 2017,
       "telephone": "+916362693487",
