@@ -41,9 +41,6 @@ const reviews = [
     },
 ];
 
-// Double the array for seamless loop
-const doubledReviews = [...reviews, ...reviews];
-
 // Pre-render common star counts for maximum performance
 const PRE_RENDERED_STARS = Array.from({ length: 5 }).map((_, i) => (
     <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
@@ -94,45 +91,28 @@ export default function Testimonials() {
                 </motion.div>
             </div>
 
-            {/* Auto-scrolling marquee */}
-            <div className="relative">
-                {/* Left / Right fades */}
-                <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-cat-cream to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-cat-cream to-transparent z-10 pointer-events-none" />
-
-                <motion.div
-                    className="flex gap-6 py-4"
-                    animate={{ x: ['0%', '-50%'] }}
-                    transition={{
-                        x: {
-                            repeat: Infinity,
-                            repeatType: 'loop',
-                            duration: 40,
-                            ease: 'linear',
-                        },
-                    }}
-                >
-                    {doubledReviews.map((review, index) => (
-                        <div
-                            key={index}
-                            className="shrink-0 w-[340px] p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <StarRating count={review.rating} />
-                            <p className="mt-4 text-slate-700 text-sm leading-relaxed line-clamp-4">
-                                &ldquo;{review.text}&rdquo;
-                            </p>
-                            <div className="mt-5 flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold">
-                                    {review.avatar}
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold text-slate-900">{review.name}</p>
-                                    <p className="text-xs text-slate-400">{review.location}</p>
-                                </div>
+            {/* Manual Horizontal Scroll */}
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-4 no-scrollbar scroll-smooth">
+                {reviews.map((review, index) => (
+                    <div
+                        key={index}
+                        className="snap-center shrink-0 w-[85vw] md:w-[350px] p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                    >
+                        <StarRating count={review.rating} />
+                        <p className="mt-4 text-slate-700 text-sm leading-relaxed line-clamp-4">
+                            &ldquo;{review.text}&rdquo;
+                        </p>
+                        <div className="mt-5 flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xs font-bold">
+                                {review.avatar}
+                            </div>
+                            <div>
+                                <p className="text-sm font-bold text-slate-900">{review.name}</p>
+                                <p className="text-xs text-slate-400">{review.location}</p>
                             </div>
                         </div>
-                    ))}
-                </motion.div>
+                    </div>
+                ))}
             </div>
 
             {/* CTA */}
