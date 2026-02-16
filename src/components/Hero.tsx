@@ -6,23 +6,11 @@ import { Heart, Trophy, Sparkles, Phone } from 'lucide-react';
 import { TrustBadge } from './hero/TrustBadge';
 import { FloatingBadge } from './hero/FloatingBadge';
 import { ExperienceBadge } from './ui/experience-badge';
-import { useEffect, useState } from 'react';
-
-function useIsMobile() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
-    return isMobile;
-}
+import { useMediaQuery } from 'usehooks-ts';
 
 export default function Hero() {
-    const isMobile = useIsMobile();
+    // Optimized: Use matchMedia listener instead of window resize event to reduce main thread load
+    const isMobile = useMediaQuery('(max-width: 767px)');
 
     return (
         <section className="relative w-full overflow-hidden bg-cat-cream min-h-screen flex items-center pt-20 pb-12 md:py-0">
