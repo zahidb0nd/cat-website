@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { GoogleTagManager } from '@next/third-parties/google';
 import { safeJsonLdStringify } from "@/lib/utils";
+import { GlassFilter } from "@/components/ui/glass-filter";
 
 
 const playfair = Playfair_Display({
@@ -190,6 +191,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${ubuntu.variable} font-sans antialiased`}
       >
+        <GlassFilter />
         <SmoothScroll>
           {children}
         </SmoothScroll>
