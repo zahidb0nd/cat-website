@@ -1,12 +1,21 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { Instagram, Heart, MessageCircle, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import persianImg from '../../public/kittens/persian.jpeg';
+import maineCoonImg from '../../public/kittens/maine-coon.jpeg';
+import familyImg from '../../public/kittens/hussaincatterybanglore-20260213-0005.jpg';
+import playImg from '../../public/kittens/hussaincatterybanglore-20260213-0006.jpg';
+import himalayanImg from '../../public/kittens/himalayan.jpeg';
+import spaImg from '../../public/kittens/hussaincatterybanglore-20260213-0007.jpg';
+import bengalImg from '../../public/kittens/bengal.jpeg';
+import cuddleImg from '../../public/kittens/hussaincatterybanglore-20260213-0002.jpg';
+
 type SocialPost = {
     id: number;
-    src: string;
+    src: string | StaticImageData;
     caption: string;
     likes: string;
     comments: string;
@@ -20,7 +29,7 @@ const INSTAGRAM_BASE = 'https://www.instagram.com/hussaincatterybanglore/';
 const socialPosts: SocialPost[] = [
     {
         id: 1,
-        src: '/kittens/persian.jpeg',
+        src: persianImg,
         caption: 'Sunday snoozes with the floof cloud ☁️ #PersianCat',
         likes: '2,847',
         comments: '64',
@@ -29,7 +38,7 @@ const socialPosts: SocialPost[] = [
     },
     {
         id: 2,
-        src: '/kittens/maine-coon.jpeg',
+        src: maineCoonImg,
         caption: 'Our giant gentle kings are growing fast! 🦁',
         likes: '3,102',
         comments: '89',
@@ -38,7 +47,7 @@ const socialPosts: SocialPost[] = [
     },
     {
         id: 3,
-        src: '/kittens/hussaincatterybanglore-20260213-0005.jpg',
+        src: familyImg,
         caption: 'Another happy family in Indiranagar! ❤️ #CatParents',
         likes: '4,521',
         comments: '112',
@@ -47,7 +56,7 @@ const socialPosts: SocialPost[] = [
     },
     {
         id: 4,
-        src: '/kittens/hussaincatterybanglore-20260213-0006.jpg',
+        src: playImg,
         caption: 'Playtime madness! 🧶',
         likes: '6,230',
         comments: '203',
@@ -57,7 +66,7 @@ const socialPosts: SocialPost[] = [
     },
     {
         id: 5,
-        src: '/kittens/himalayan.jpeg',
+        src: himalayanImg,
         caption: 'New litter arriving soon... stay tuned! 🐾',
         likes: '5,678',
         comments: '187',
@@ -66,7 +75,7 @@ const socialPosts: SocialPost[] = [
     },
     {
         id: 6,
-        src: '/kittens/hussaincatterybanglore-20260213-0007.jpg',
+        src: spaImg,
         caption: 'Spa day for the queens 💅',
         likes: '1,945',
         comments: '42',
@@ -75,7 +84,7 @@ const socialPosts: SocialPost[] = [
     },
     {
         id: 7,
-        src: '/kittens/bengal.jpeg',
+        src: bengalImg,
         caption: 'Wild looks, gentle heart 🐆 #BengalCat #MiniLeopard',
         likes: '3,891',
         comments: '156',
@@ -84,7 +93,7 @@ const socialPosts: SocialPost[] = [
     },
     {
         id: 8,
-        src: '/kittens/hussaincatterybanglore-20260213-0002.jpg',
+        src: cuddleImg,
         caption: 'Morning cuddles are non-negotiable in this house 🥰',
         likes: '2,334',
         comments: '73',
@@ -149,6 +158,7 @@ export default function CatteryMoments() {
                                         fill
                                         className="object-cover transform transition-transform duration-700 group-hover:scale-110 will-change-transform"
                                         sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                        placeholder="blur"
                                     />
 
                                     {/* Reel Badge */}
