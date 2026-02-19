@@ -20,6 +20,9 @@ const mobileTabs = [
   { title: "Contact", icon: Phone, targetId: "#contact" },
 ];
 
+// Prepare tabs for ExpandableTabs (needs title and icon)
+const desktopTabs = tabs.map(({ title, icon }) => ({ title, icon }));
+
 function MobileBottomNav() {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -62,9 +65,6 @@ export default function Navbar() {
       setIsMobileMenuOpen(false); // Close mobile menu on selection
     }
   }, []);
-
-  // Prepare tabs for ExpandableTabs (needs title and icon)
-  const desktopTabs = tabs.map(({ title, icon }) => ({ title, icon }));
 
   return (
     <>

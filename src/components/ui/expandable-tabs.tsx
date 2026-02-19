@@ -48,7 +48,7 @@ const spanVariants = {
 
 const transition = { delay: 0.1, type: "spring", bounce: 0, duration: 0.6 } as const;
 
-export function ExpandableTabs({
+function ExpandableTabsComponent({
     tabs,
     className,
     activeColor = "text-primary",
@@ -122,3 +122,5 @@ export function ExpandableTabs({
         </div>
     );
 }
+
+export const ExpandableTabs = React.memo(ExpandableTabsComponent);
