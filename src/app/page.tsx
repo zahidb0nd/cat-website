@@ -8,19 +8,19 @@ import { Phone, Mail, Shield, Sparkles, Home, Globe, ChevronDown, CheckCircle } 
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
 
-const KittenGallery = dynamic(() => import('@/components/KittenGallery'), { ssr: false });
-const ReservationForm = dynamic(() => import('@/components/ReservationForm'), { ssr: false });
-const CatteryMoments = dynamic(() => import('@/components/CatteryMoments'), { ssr: false });
-const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false });
+import KittenGallery from '@/components/KittenGallery';
+import ReservationForm from '@/components/ReservationForm';
+import CatteryMoments from '@/components/CatteryMoments';
+import Testimonials from '@/components/Testimonials';
+import FAQSection from '@/components/FAQSection';
+import CareGuide from '@/components/CareGuide';
+import CertifiedBadgeBar from '@/components/CertifiedBadgeBar';
+import AboutTimeline from '@/components/AboutTimeline';
+
 const GoogleMapSection = dynamic(() => import('@/components/GoogleMapSection'), { ssr: false });
-const FAQSection = dynamic(() => import('@/components/FAQSection'), { ssr: false });
-const CareGuide = dynamic(() => import('@/components/CareGuide'), { ssr: false });
-const CertifiedBadgeBar = dynamic(() => import('@/components/CertifiedBadgeBar'), { ssr: false });
-const AboutTimeline = dynamic(() => import('@/components/AboutTimeline'), { ssr: false });
 
 import FloatingTrustBadge from '@/components/FloatingTrustBadge';
-
-const FooterSection = dynamic(() => import('@/components/ui/footer'), { ssr: false });
+import FooterSection from '@/components/ui/footer';
 
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import { cn } from '@/lib/utils';
