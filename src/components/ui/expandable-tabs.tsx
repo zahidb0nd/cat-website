@@ -57,15 +57,20 @@ function ExpandableTabsComponent({
     const [selected, setSelected] = React.useState<number | null>(null);
     const outsideClickRef = React.useRef<HTMLDivElement>(null);
 
-    useOnClickOutside(outsideClickRef as React.RefObject<HTMLElement>, () => {
+    const handleClickOutside = React.useCallback(() => {
         setSelected(null);
         onChange?.(null);
-    });
+    }, [onChange]);
 
-    const handleSelect = (index: number) => {
-        setSelected(index);
-        onChange?.(index);
-    };
+    useOnClickOutside(outsideClickRef as React.RefObject<HTMLElement>, handleClickOutside);
+
+    const handleSelect = React.useCallback(
+        (index: number) => {
+            setSelected(index);
+            onChange?.(index);
+        },
+        [onChange]
+    );
 
     const Separator = () => (
         <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
