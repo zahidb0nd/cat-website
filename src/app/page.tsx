@@ -10,12 +10,15 @@ import Navbar from '@/components/Navbar';
 
 import KittenGallery from '@/components/KittenGallery';
 import ReservationForm from '@/components/ReservationForm';
-import CatteryMoments from '@/components/CatteryMoments';
-import Testimonials from '@/components/Testimonials';
-import FAQSection from '@/components/FAQSection';
-import CareGuide from '@/components/CareGuide';
-import CertifiedBadgeBar from '@/components/CertifiedBadgeBar';
 import AboutTimeline from '@/components/AboutTimeline';
+
+// Optimize: Lazy load below-the-fold components to reduce initial bundle size
+// while maintaining SSR for SEO (default behavior of dynamic imports).
+const CatteryMoments = dynamic(() => import('@/components/CatteryMoments'));
+const Testimonials = dynamic(() => import('@/components/Testimonials'));
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
+const CareGuide = dynamic(() => import('@/components/CareGuide'));
+const CertifiedBadgeBar = dynamic(() => import('@/components/CertifiedBadgeBar'));
 
 const GoogleMapSection = dynamic(() => import('@/components/GoogleMapSection'), { ssr: false });
 
