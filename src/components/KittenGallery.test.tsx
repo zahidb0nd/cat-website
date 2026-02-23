@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, test, expect, vi } from 'vitest';
 import BreedShowcase from './KittenGallery';
@@ -6,6 +6,7 @@ import BreedShowcase from './KittenGallery';
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     div: ({
       children,
       className,
@@ -14,12 +15,12 @@ vi.mock('framer-motion', () => ({
       role,
       tabIndex,
       // Filter out motion props
-      initial,
-      animate,
-      exit,
-      whileInView,
-      viewport,
-      transition,
+      initial: _initial,
+      animate: _animate,
+      exit: _exit,
+      whileInView: _whileInView,
+      viewport: _viewport,
+      transition: _transition,
       ...props
     }: any) => (
       <div
@@ -33,18 +34,21 @@ vi.mock('framer-motion', () => ({
         {children}
       </div>
     ),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     section: ({ children, className, ...props }: any) => (
       <section className={className} {...props}>
         {children}
       </section>
     ),
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   AnimatePresence: ({ children }: any) => <>{children}</>,
 }));
 
 // Mock next/image
 vi.mock('next/image', () => ({
-  default: ({ src, alt, fill, ...props }: any) => (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  default: ({ src, alt, fill: _fill, ...props }: any) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img src={src} alt={alt} {...props} />
   ),

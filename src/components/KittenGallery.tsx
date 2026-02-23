@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, memo } from 'react';
+import { useState, memo, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image, { type StaticImageData } from 'next/image';
 import { X, MapPin, Smile, Ruler, Scissors, Baby, ArrowRight } from 'lucide-react';
@@ -24,7 +24,6 @@ const breedImages: Record<string, StaticImageData> = {
     'british-shorthair': britishShorthairObj,
     'himalayan': himalayanObj,
 };
-
 
 /* ── Detail Row (used inside the modal) ────────────────────── */
 function DetailRow({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
@@ -176,6 +175,13 @@ BreedCard.displayName = 'BreedCard';
 export default function BreedShowcase() {
     const [selectedBreed, setSelectedBreed] = useState<Breed | null>(null);
 
+    // Optimized: Memoize date calculation to avoid re-computation on re-renders (e.g. modal open/close)
+    const todayFormatted = useMemo(() => new Date().toLocaleDateString('en-IN', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    }), []);
+
     return (
         <>
             <section id="kittens" className="py-24 bg-white">
@@ -194,7 +200,7 @@ export default function BreedShowcase() {
                                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
                                 </span>
                                 <span className="text-sm text-cat-slate font-medium" suppressHydrationWarning>
-                                    Availability updated: {new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+                                    Availability updated: {todayFormatted}
                                 </span>
                             </div>
                             <p className="text-sm text-slate-500 font-medium bg-slate-100 px-4 py-1.5 rounded-lg border border-slate-200/50">
