@@ -93,6 +93,11 @@ const TabButton = React.memo(({ tab, isSelected, index, onSelect, activeColor }:
 });
 TabButton.displayName = "TabButton";
 
+const Separator = React.memo(() => (
+    <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
+));
+Separator.displayName = "Separator";
+
 function ExpandableTabsComponent({
     tabs,
     className,
@@ -115,10 +120,6 @@ function ExpandableTabsComponent({
             onChange?.(index);
         },
         [onChange]
-    );
-
-    const Separator = () => (
-        <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
     );
 
     return (
