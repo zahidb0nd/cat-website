@@ -6,7 +6,6 @@ import BreedShowcase from './KittenGallery';
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     div: ({
       children,
       className,
@@ -15,14 +14,23 @@ vi.mock('framer-motion', () => ({
       role,
       tabIndex,
       // Filter out motion props
+      /* eslint-disable @typescript-eslint/no-unused-vars */
       initial: _initial,
       animate: _animate,
       exit: _exit,
       whileInView: _whileInView,
       viewport: _viewport,
       transition: _transition,
+      /* eslint-enable @typescript-eslint/no-unused-vars */
       ...props
-    }: any) => (
+    }: React.HTMLAttributes<HTMLDivElement> & {
+      initial?: unknown;
+      animate?: unknown;
+      exit?: unknown;
+      whileInView?: unknown;
+      viewport?: unknown;
+      transition?: unknown;
+    }) => (
       <div
         className={className}
         onClick={onClick}
@@ -41,17 +49,19 @@ vi.mock('framer-motion', () => ({
       </section>
     ),
   },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  AnimatePresence: ({ children }: any) => <>{children}</>,
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
 // Mock next/image
 vi.mock('next/image', () => ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  default: ({ src, alt, fill: _fill, ...props }: any) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img src={src} alt={alt} {...props} />
-  ),
+  default: ({ src, alt, fill: _fill, ...props }: any) => {
+    // _fill is extracted to avoid passing it to the img tag
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={src} alt={alt} {...props} />
+    );
+  },
 }));
 
 describe('BreedShowcase', () => {

@@ -9,3 +9,7 @@
 ## 2026-03-03 - Unstable Handlers in useOnClickOutside
 **Learning:** Passing an inline arrow function to `useOnClickOutside` causes unnecessary removal and re-attachment of event listeners on every render, which can degrade performance in interactive components.
 **Action:** Always wrap handlers passed to `useOnClickOutside` in `React.useCallback`.
+
+## 2026-03-04 - React.memo Re-rendering
+**Learning:** In React components like `ExpandableTabs`, defining internal child components inside the parent component's render function (like `Separator = () => ...`) causes them to be recreated on every render. This forces React to unmount and remount them in the DOM, negatively impacting performance.
+**Action:** Always extract inner component definitions outside of the parent component and wrap them with `React.memo` for optimal performance.

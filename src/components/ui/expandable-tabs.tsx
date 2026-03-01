@@ -93,6 +93,11 @@ const TabButton = React.memo(({ tab, isSelected, index, onSelect, activeColor }:
 });
 TabButton.displayName = "TabButton";
 
+const TabSeparator = React.memo(() => (
+    <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
+));
+TabSeparator.displayName = "TabSeparator";
+
 function ExpandableTabsComponent({
     tabs,
     className,
@@ -117,10 +122,6 @@ function ExpandableTabsComponent({
         [onChange]
     );
 
-    const Separator = () => (
-        <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
-    );
-
     return (
         <div
             ref={outsideClickRef}
@@ -131,7 +132,7 @@ function ExpandableTabsComponent({
         >
             {tabs.map((tab, index) => {
                 if (tab.type === "separator") {
-                    return <Separator key={`separator-${index}`} />;
+                    return <TabSeparator key={`separator-${index}`} />;
                 }
 
                 return (

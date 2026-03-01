@@ -1,14 +1,17 @@
 'use client';
 
-import { LazyMotion, domMax } from 'framer-motion';
+import { LazyMotion, domAnimation } from 'framer-motion';
 
 /**
  * Wraps the application in Framer Motion's LazyMotion to reduce initial bundle size.
- * Uses 'domMax' features to support layout animations and drag gestures used throughout the app.
+ * ⚡ Bolt Optimization: Switched from `domMax` to `domAnimation`.
+ * The application only uses standard animations (animate, whileInView, variants)
+ * and does not use `layout` animations or `drag` gestures. This reduces the
+ * Framer Motion payload by excluding unused animation features.
  */
 export default function AnimationProvider({ children }: { children: React.ReactNode }) {
     return (
-        <LazyMotion features={domMax}>
+        <LazyMotion features={domAnimation}>
             {children}
         </LazyMotion>
     );
